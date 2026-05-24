@@ -1,1289 +1,963 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>MathDB • Mathematical Reference Database</title>
+    <title>MathDB - Mathematical Reference Database</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/J-Ascanio/MathDB/refs/heads/images/Favicon%20Logo%20-%20MathDB.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 
     <!-- KaTeX -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
-    />
-
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
-    ></script>
-
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
-    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
     <!-- Math.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.js"></script>
 
     <style>
+        :root {
+            --bg: #0b1020;
+            --panel: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #f4f7ff;
+            --text-muted: #9aa4c7;
+            --accent: #5ea0ff;
+            --accent-hover: #84baff;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            --radius: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, #18213f, #0b1020 50%);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 280px;
+            background: rgba(8, 12, 24, 0.95);
+            border-right: 1px solid var(--border);
+
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 28px;
+
+            backdrop-filter: blur(18px);
+            z-index: 1000;
+        }
+
+        .logo {
+            margin-bottom: 36px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo p {
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nav-section {
+            margin-bottom: 30px;
+        }
+
+        .nav-section-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-                        :root {
-                          --bg: #0b1020;
-                          --bg-secondary: #12182b;
-                          --panel: rgba(255,255,255,0.04);
-                          --panel-solid: #151d33;
-                          --border: rgba(255,255,255,0.08);
-                          --text: #f4f7ff;
-                          --text-muted: #9aa4c7;
-                          --accent: #5ea0ff;
-                          --accent-hover: #84baff;
-                          --success: #6ddc91;
-                          --shadow: 0 10px 40px rgba(0,0,0,0.35);
-                          --radius: 24px;
-                        }
-
-                        * {
-                          margin: 0;
-                          padding: 0;
-                          box-sizing: border-box;
-                        }
-
-                        html {
-                          scroll-behavior: smooth;
-                        }
-
-                        body {
-                          font-family: 'Inter', sans-serif;
-                          background:
-                            radial-gradient(circle at top left, #18213f, #0b1020 50%);
-                          color: var(--text);
-                          min-height: 100vh;
-                          overflow-x: hidden;
-                        }
-
-                        a {
-                          color: inherit;
-                          text-decoration: none;
-                        }
-
-                        button {
-                          border: none;
-                          cursor: pointer;
-                          font-family: inherit;
-                        }
-
-                        .app {
-                          display: flex;
-                          min-height: 100vh;
-                        }
-
-                        /* SIDEBAR */
-
-                        .sidebar {
-                          width: 280px;
-                          background: rgba(8,12,24,0.95);
-                          border-right: 1px solid var(--border);
-
-                          position: fixed;
-                          left: 0;
-                          top: 0;
-                          bottom: 0;
-
-                          display: flex;
-                          flex-direction: column;
-
-                          padding: 28px;
-
-                          backdrop-filter: blur(18px);
-                          z-index: 1000;
-                        }
-
-                        .logo {
-                          margin-bottom: 36px;
-                        }
-
-                        .logo h1 {
-                          font-size: 1.6rem;
-                          font-weight: 800;
-                          letter-spacing: -1px;
-                        }
-
-                        .logo p {
-                          color: var(--text-muted);
-                          margin-top: 8px;
-                          font-size: 0.95rem;
-                        }
-
-                        .nav-section {
-                          margin-bottom: 30px;
-                        }
-
-                        .nav-section-title {
-                          color: var(--text-muted);
-                          font-size: 0.8rem;
-                          text-transform: uppercase;
-                          letter-spacing: 2px;
-                          margin-bottom: 14px;
-                        }
-
-                        .nav-links {
-                          display: flex;
-                          flex-direction: column;
-                          gap: 8px;
-                        }
+        .nav-links button {
+            background: transparent;
+            color: var(--text);
+            text-align: left;
 
-                        .nav-links button {
-                          background: transparent;
-                          color: var(--text);
-                          text-align: left;
+            padding: 14px 16px;
 
-                          padding: 14px 16px;
+            border-radius: 14px;
 
-                          border-radius: 14px;
+            transition: 0.25s ease;
 
-                          transition: 0.25s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
 
-                          font-size: 0.95rem;
-                          font-weight: 500;
-                        }
+        .nav-links button:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
+        }
 
-                        .nav-links button:hover {
-                          background: rgba(255,255,255,0.05);
-                          transform: translateX(4px);
-                        }
+        .nav-links button.active {
+            background: rgba(94, 160, 255, 0.14);
+            border: 1px solid rgba(94, 160, 255, 0.2);
+        }
 
-                        .nav-links button.active {
-                          background: rgba(94,160,255,0.14);
-                          border: 1px solid rgba(94,160,255,0.2);
-                        }
+        /* MAIN */
 
-                        /* MAIN */
+        .main {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+            padding: 32px;
+        }
 
-                        .main {
-                          margin-left: 280px;
-                          width: calc(100% - 280px);
-                          padding: 32px;
-                        }
+        /* TOPBAR */
 
-                        /* TOPBAR */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
 
-                        .topbar {
-                          display: flex;
-                          justify-content: space-between;
-                          align-items: center;
-                          margin-bottom: 32px;
-                        }
+        .searchbar {
+            width: 420px;
+            position: relative;
+        }
 
-                        .searchbar {
-                          width: 420px;
-                          position: relative;
-                        }
+        .searchbar input {
+            width: 100%;
+            padding: 16px 20px;
 
-                        .searchbar input {
-                          width: 100%;
-                          padding: 16px 20px;
+            background: var(--panel);
 
-                          background: var(--panel);
+            border: 1px solid var(--border);
 
-                          border: 1px solid var(--border);
+            border-radius: 16px;
 
-                          border-radius: 16px;
+            color: white;
+            font-size: 1rem;
 
-                          color: white;
-                          font-size: 1rem;
+            backdrop-filter: blur(16px);
 
-                          backdrop-filter: blur(16px);
+            font-family: 'Inter', sans-serif;
+        }
 
-                          font-family: 'Inter', sans-serif;
-                        }
+        .searchbar input:focus {
+            outline: none;
+            border-color: rgba(94, 160, 255, 0.4);
+        }
 
-                        .searchbar input:focus {
-                          outline: none;
-                          border-color: rgba(94,160,255,0.4);
-                        }
+        /* SEARCH */
 
-                        /* SEARCH */
+        .search-results {
+            position: absolute;
+            top: 72px;
+            left: 0;
+            width: 100%;
 
-                        .search-results {
-                          position: absolute;
-                          top: 72px;
-                          left: 0;
-                          width: 100%;
+            background: rgba(15, 20, 35, 0.98);
 
-                          background: rgba(15,20,35,0.98);
+            border: 1px solid var(--border);
 
-                          border: 1px solid var(--border);
+            border-radius: 18px;
 
-                          border-radius: 18px;
+            overflow: hidden;
 
-                          overflow: hidden;
+            backdrop-filter: blur(18px);
 
-                          backdrop-filter: blur(18px);
+            box-shadow: var(--shadow);
 
-                          box-shadow: var(--shadow);
+            display: none;
 
-                          display: none;
+            z-index: 2000;
+        }
 
-                          z-index: 2000;
-                        }
+        .search-result-item {
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-                        .search-result-item {
-                          padding: 16px 18px;
-                          border-bottom: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
 
-                          cursor: pointer;
-                          transition: 0.2s ease;
-                        }
+        .search-result-item:hover {
+            background: rgba(94, 160, 255, 0.12);
+        }
 
-                        .search-result-item:hover {
-                          background: rgba(94,160,255,0.12);
-                        }
+        /* HERO */
 
-                        /* HERO */
+        .hero {
+            padding: 56px;
 
-                        .hero {
-                          padding: 56px;
+            border-radius: 32px;
 
-                          border-radius: 32px;
+            background:
+                linear-gradient(135deg,
+                    rgba(94, 160, 255, 0.18),
+                    rgba(255, 255, 255, 0.04));
 
-                          background:
-                            linear-gradient(
-                              135deg,
-                              rgba(94,160,255,0.18),
-                              rgba(255,255,255,0.04)
-                            );
+            border: 1px solid var(--border);
 
-                          border: 1px solid var(--border);
+            backdrop-filter: blur(16px);
 
-                          backdrop-filter: blur(16px);
+            box-shadow: var(--shadow);
 
-                          box-shadow: var(--shadow);
+            margin-bottom: 32px;
+        }
 
-                          margin-bottom: 32px;
-                        }
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 18px;
+            max-width: 800px;
+            letter-spacing: -3px;
+        }
 
-                        .hero h1 {
-                          font-size: 4rem;
-                          line-height: 1;
-                          margin-bottom: 18px;
-                          max-width: 800px;
-                          letter-spacing: -3px;
-                        }
+        .hero p {
+            max-width: 720px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
 
-                        .hero p {
-                          max-width: 720px;
-                          color: var(--text-muted);
-                          line-height: 1.8;
-                          font-size: 1.1rem;
-                        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
 
-                        .hero-buttons {
-                          display: flex;
-                          gap: 16px;
-                          margin-top: 32px;
-                        }
+        .primary-btn {
+            background: var(--accent);
+            color: white;
 
-                        .primary-btn {
-                          background: var(--accent);
-                          color: white;
+            padding: 14px 24px;
 
-                          padding: 14px 24px;
+            border-radius: 14px;
 
-                          border-radius: 14px;
+            font-weight: 600;
 
-                          font-weight: 600;
+            transition: 0.25s ease;
+        }
 
-                          transition: 0.25s ease;
-                        }
+        .primary-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
 
-                        .primary-btn:hover {
-                          background: var(--accent-hover);
-                          transform: translateY(-2px);
-                        }
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.04);
 
-                        .secondary-btn {
-                          background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
 
-                          border: 1px solid var(--border);
+            color: white;
 
-                          color: white;
+            padding: 14px 24px;
 
-                          padding: 14px 24px;
+            border-radius: 14px;
+        }
 
-                          border-radius: 14px;
-                        }
+        /* GRID */
 
-                        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
 
-                        .grid {
-                          display: grid;
-                          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                          gap: 24px;
-                        }
+        /* CARDS */
 
-                        /* CARDS */
+        .card {
+            background: var(--panel);
 
-                        .card {
-                          background: var(--panel);
+            border: 1px solid var(--border);
 
-                          border: 1px solid var(--border);
+            border-radius: var(--radius);
 
-                          border-radius: var(--radius);
+            padding: 28px;
 
-                          padding: 28px;
+            backdrop-filter: blur(18px);
 
-                          backdrop-filter: blur(18px);
+            box-shadow: var(--shadow);
 
-                          box-shadow: var(--shadow);
+            transition: 0.3s ease;
+        }
 
-                          transition: 0.3s ease;
-                        }
+        .card h2 {
+            margin-bottom: 14px;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
 
-                        .card:hover {
-                          transform: none;
-                        }
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
 
-                        .card h2 {
-                          margin-bottom: 14px;
-                          font-size: 1.5rem;
-                          letter-spacing: -1px;
-                        }
+        /* CALCULATOR */
 
-                        .card p {
-                          color: var(--text-muted);
-                          line-height: 1.8;
-                        }
+        .calculator {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
 
-                        /* CALCULATOR */
+        .calc-panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 28px;
+        }
 
-                        .calculator {
-                          display: grid;
-                          grid-template-columns: 1fr 1fr;
-                          gap: 24px;
-                          margin-top: 32px;
-                        }
+        .calc-panel h2 {
+            margin-bottom: 18px;
+        }
 
-                        .calc-panel {
-                          background: var(--panel);
-                          border: 1px solid var(--border);
-                          border-radius: 24px;
-                          padding: 28px;
-                        }
+        .calc-input {
+            width: 100%;
+            padding: 18px;
 
-                        .calc-panel h2 {
-                          margin-bottom: 18px;
-                        }
+            background: rgba(0, 0, 0, 0.2);
 
-                        .calc-input {
-                          width: 100%;
-                          padding: 18px;
+            border: 1px solid var(--border);
 
-                          background: rgba(0,0,0,0.2);
+            border-radius: 16px;
 
-                          border: 1px solid var(--border);
+            color: white;
+            font-size: 1rem;
 
-                          border-radius: 16px;
+            margin-bottom: 18px;
+        }
 
-                          color: white;
-                          font-size: 1rem;
+        .calc-input:focus {
+            outline: none;
+            border-color: rgba(94, 160, 255, 0.4);
+        }
 
-                          margin-bottom: 18px;
-                        }
+        .calc-output {
+            min-height: 200px;
 
-                        .calc-input:focus {
-                          outline: none;
-                          border-color: rgba(94,160,255,0.4);
-                        }
+            background: rgba(0, 0, 0, 0.15);
 
-                        .calc-output {
-                          min-height: 200px;
+            border-radius: 16px;
 
-                          background: rgba(0,0,0,0.15);
+            padding: 24px;
 
-                          border-radius: 16px;
+            border: 1px solid var(--border);
+        }
 
-                          padding: 24px;
+        .formula-box {
+            background: rgba(0, 0, 0, 0.25);
 
-                          border: 1px solid var(--border);
-                        }
+            border: 1px solid rgba(255, 255, 255, 0.05);
 
-                        .formula-box {
-                          background: rgba(0,0,0,0.25);
+            border-radius: 18px;
 
-                          border: 1px solid rgba(255,255,255,0.05);
+            padding: 24px;
 
-                          border-radius: 18px;
+            margin-top: 18px;
+        }
 
-                          padding: 24px;
+        .formula-box h3 {
+            margin-bottom: 14px;
+        }
 
-                          margin-top: 18px;
-                        }
+        /* PAGES */
 
-                        .formula-box h3 {
-                          margin-bottom: 14px;
-                        }
+        .page {
+            display: none;
+        }
 
-                        /* PAGES */
+        .page.active {
+            display: block;
+        }
 
-                        .page {
-                          display: none;
-                        }
+        /* RESPONSIVE */
 
-                        .page.active {
-                          display: block;
-                        }
+        @media (max-width: 1000px) {
 
-                        /* RESPONSIVE */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
 
-                        @media (max-width: 1000px) {
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
 
-                          .sidebar {
-                            width: 100%;
-                            height: auto;
-                            position: relative;
-                          }
+            .app {
+                flex-direction: column;
+            }
 
-                          .main {
-                            margin-left: 0;
-                            width: 100%;
-                          }
+            .calculator {
+                grid-template-columns: 1fr;
+            }
 
-                          .app {
-                            flex-direction: column;
-                          }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
 
-                          .calculator {
-                            grid-template-columns: 1fr;
-                          }
+            .topbar {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-                          .hero h1 {
-                            font-size: 2.8rem;
-                          }
+            .searchbar {
+                width: 100%;
+            }
 
-                          .topbar {
-                            flex-direction: column;
-                            gap: 20px;
-                          }
+        }
 
-                          .searchbar {
-                            width: 100%;
-                          }
+        .linked-card {
+            cursor: pointer;
+        }
 
-                        }
-
-                        .linked-card {
-        cursor: pointer;
-      }
-
-      .linked-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(94,160,255,0.3);
-      }
+        .linked-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(94, 160, 255, 0.3);
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="app">
-      <!-- SIDEBAR -->
+        <!-- SIDEBAR -->
 
-      <aside class="sidebar">
-        <div class="logo">
-          <h1>MathDB</h1>
-          <p>Modern Mathematical Workspace</p>
-        </div>
-
-        <div class="nav-section">
-          <div class="nav-section-title">Main</div>
-
-          <div class="nav-links">
-            <button class="nav-btn active" data-page="home">Home</button>
-
-            <button class="nav-btn" data-page="calculator">Calculator</button>
-
-            <button class="nav-btn" data-page="formulas">Formulas</button>
-
-            <button class="nav-btn" data-page="functions">Functions</button>
-
-            <button class="nav-btn" data-page="topics">Topics</button>
-
-            <button class="nav-btn" data-page="mathematicians">
-              Mathematicians
-            </button>
-          </div>
-        </div>
-      </aside>
-
-      <!-- MAIN -->
-
-      <main class="main">
-        <div class="topbar">
-          <div>
-            <h2>Mathematical Reference Database</h2>
-          </div>
-
-          <div class="searchbar">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search formulas, lessons, concepts..."
-            />
-
-            <div id="searchResults" class="search-results"></div>
-          </div>
-        </div>
-
-        <!-- HOME -->
-
-        <section class="page active" id="home">
-          <div class="hero">
-            <h1>The Modern Mathematical Reference Platform</h1>
-
-            <p>
-              Learn mathematics interactively with symbolic computation, formula
-              references, and advanced mathematical tools.
-            </p>
-
-            <div class="hero-buttons">
-              <button class="primary-btn" onclick="openPage('topics')">
-                Explore Topics
-              </button>
-
-              <button class="secondary-btn" onclick="openPage('calculator')">
-                Open Calculator
-              </button>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="card" onclick="openPage('topics')">
-              <h2>Advanced Mathematics</h2>
-
-              <p>
-                Explore calculus, topology, tensor analysis, abstract algebra,
-                and more.
-              </p>
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>MathDB</h1>
+                <p>Modern Mathematical Workspace</p>
             </div>
 
-            <div class="card">
-              <h2>Symbolic Computation</h2>
+            <div class="nav-section">
+                <div class="nav-section-title">Main</div>
 
-              <p>
-                Evaluate derivatives, integrals, algebraic expressions, and
-                symbolic equations.
-              </p>
+                <div class="nav-links">
+                    <button class="nav-btn active" data-page="home">Home</button>
+
+                    <button class="nav-btn" data-page="calculator">Calculator</button>
+
+                    <button class="nav-btn" data-page="formulas">Formulas</button>
+
+                    <button class="nav-btn" data-page="functions">Functions</button>
+
+                    <button class="nav-btn" data-page="topics">Topics</button>
+
+                    <button class="nav-btn" data-page="mathematicians">
+                        Mathematicians
+                    </button>
+                </div>
             </div>
-          </div>
-        </section>
+        </aside>
 
-        <!-- CALCULATOR -->
+        <!-- MAIN -->
 
-        <section class="page" id="calculator">
-          <div class="calculator">
-            <div class="calc-panel">
-              <h2>Scientific Calculator</h2>
+        <main class="main">
+            <div class="topbar">
+                <div>
+                    <h2>Mathematical Reference Database</h2>
+                </div>
 
-              <input
-                id="calcInput"
-                class="calc-input"
-                placeholder="Enter expression..."
-              />
+                <div class="searchbar">
+                    <input type="text" id="searchInput" placeholder="Search formulas, lessons, concepts..." />
 
-              <div class="formula-box">
-                <h3>Live Preview</h3>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
 
-                <div id="livePreview">Awaiting input...</div>
-              </div>
+            <!-- HOME -->
 
-              <div
-                style="
+            <section class="page active" id="home">
+                <div class="hero">
+                    <h1>The Modern Mathematical Reference Platform</h1>
+
+                    <p>
+                        Learn mathematics interactively with symbolic computation, formula
+                        references, and advanced mathematical tools.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="primary-btn" onclick="openPage('topics')">
+                            Explore Topics
+                        </button>
+
+                        <button class="secondary-btn" onclick="openPage('calculator')">
+                            Open Calculator
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="card" onclick="openPage('topics')">
+                        <h2>Advanced Mathematics</h2>
+
+                        <p>
+                            Explore calculus, topology, tensor analysis, abstract algebra,
+                            and more.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Symbolic Computation</h2>
+
+                        <p>
+                            Evaluate derivatives, integrals, algebraic expressions, and
+                            symbolic equations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CALCULATOR -->
+
+            <section class="page" id="calculator">
+                <div class="calculator">
+                    <div class="calc-panel">
+                        <h2>Scientific Calculator</h2>
+
+                        <input id="calcInput" class="calc-input" placeholder="Enter expression..." />
+
+                        <div class="formula-box">
+                            <h3>Live Preview</h3>
+
+                            <div id="livePreview">Awaiting input...</div>
+                        </div>
+
+                        <div style="
               display:flex;
               gap:12px;
               margin-top:18px;
               margin-bottom:18px;
-            "
-              >
-                <button
-                  id="radianBtn"
-                  class="primary-btn"
-                  onclick="setAngleMode('radians')"
-                >
-                  Radians
-                </button>
+            ">
+                            <button id="radianBtn" class="primary-btn" onclick="setAngleMode('radians')">
+                                Radians
+                            </button>
 
-                <button
-                  id="degreeBtn"
-                  class="secondary-btn"
-                  onclick="setAngleMode('degrees')"
-                >
-                  Degrees
-                </button>
-              </div>
+                            <button id="degreeBtn" class="secondary-btn" onclick="setAngleMode('degrees')">
+                                Degrees
+                            </button>
+                        </div>
 
-              <button class="primary-btn" onclick="calculate()">
-                Calculate
-              </button>
+                        <button class="primary-btn" onclick="calculate()">
+                            Calculate
+                        </button>
 
-              <div class="formula-box">
-                <h3>Examples</h3>
+                        <div class="formula-box">
+                            <h3>Examples</h3>
 
-                <p>sin(pi / 2)</p>
-                <p>integrate(x^2, x, 0, 5)</p>
-                <p>limit("sin(x)/x", x, 0)</p>
-                <p>derivative("x^3 + 2x", 5)</p>
-              </div>
-            </div>
+                            <p>sin(pi / 2)</p>
+                            <p>integrate(x^2, x, 0, 5)</p>
+                            <p>limit("sin(x)/x", x, 0)</p>
+                            <p>derivative("x^3 + 2x", 5)</p>
+                        </div>
+                    </div>
 
-            <div class="calc-panel">
-              <h2>Output</h2>
+                    <div class="calc-panel">
+                        <h2>Output</h2>
 
-              <div class="calc-output">
-                <p><strong>Result:</strong></p>
+                        <div class="calc-output">
+                            <p><strong>Result:</strong></p>
 
-                <p id="calcResult">Awaiting input...</p>
-              </div>
-            </div>
-          </div>
-        </section>
+                            <p id="calcResult">Awaiting input...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- FORMULAS -->
+            <!-- FORMULAS -->
 
-        <section class="page" id="formulas">
-          <div class="grid">
-            <div
-              class="card searchable linked-card"
-              data-title="Quadratic Formula"
-              data-keywords="quadratic polynomial algebra powers exponents exponential"
-              data-page="quadratic-formula"
-            >
-              <h2>Quadratic Formula</h2>
+            <section class="page" id="formulas">
+                <div class="grid">
+                    <div class="card searchable linked-card" data-title="Quadratic Formula"
+                        data-keywords="quadratic polynomial algebra powers exponents exponential"
+                        data-page="quadratic-formula">
+                        <h2>Quadratic Formula</h2>
 
-              <p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
-            </div>
+                        <p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
+                    </div>
 
-            <div
-              class="card searchable linked-card"
-              data-title="Pythagorean Theorem"
-              data-keywords="pythagorean theorem a^2+b^2=c^2 pythagoras geometry right triangle"
-              data-page="pythagorean-theorem"
-            >
-              <h2>Pythagorean Theorem</h2>
+                    <div class="card searchable linked-card" data-title="Pythagorean Theorem"
+                        data-keywords="pythagorean theorem a^2+b^2=c^2 pythagoras geometry right triangle"
+                        data-page="pythagorean-theorem">
+                        <h2>Pythagorean Theorem</h2>
 
-              <p>\[ a^2 + b^2 = c^2 \]</p>
-            </div>
-          </div>
-        </section>
+                        <p>\[ a^2 + b^2 = c^2 \]</p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- FUNCTIONS -->
+            <!-- FUNCTIONS -->
 
-        <section class="page" id="functions">
-          <div class="grid">
-            <div
-            class="card searchable linked-card"
-            data-title="Trigonometric Functions"
-            data-keywords="trigonometry trigonometric functions sine cosine tangent cotangent secant cosecant sin cos tan cot sec csc sin(x) cos(x) tan(x) cot(x) sec(x) csc(x) arcsine arccosine arctangent arccotangent srcsecant arccosecant asin acos atan acot asec acsc arcsin arccos arctan arccot arcsec arccsc asin(x) acos(x) atan(x) acot(x) asec(x) acsc(x) arcsin(x) arccos(x) arctan(x) arccot(x) arcsec(x) arccsc(x)"
-            data-page="trigonometric-functions">
-              <h2>Trigonometric Functions</h2>
+            <section class="page" id="functions">
+                <div class="grid">
+                    <div class="card searchable linked-card" data-title="Trigonometric Functions"
+                        data-keywords="trigonometry trigonometric functions sine cosine tangent cotangent secant cosecant sin cos tan cot sec csc sin(x) cos(x) tan(x) cot(x) sec(x) csc(x) arcsine arccosine arctangent arccotangent srcsecant arccosecant asin acos atan acot asec acsc arcsin arccos arctan arccot arcsec arccsc asin(x) acos(x) atan(x) acot(x) asec(x) acsc(x) arcsin(x) arccos(x) arctan(x) arccot(x) arcsec(x) arccsc(x)"
+                        data-page="trigonometric-functions">
+                        <h2>Trigonometric Functions</h2>
 
-              <p>
-                Includes sine, cosine, tangent, secant, cosecant, and cotangent.
-              </p>
-            </div>
-          </div>
-        </section>
+                        <p>
+                            Includes sine, cosine, tangent, secant, cosecant, and cotangent.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- TOPICS -->
+            <!-- TOPICS -->
 
-        <section class="page" id="topics">
-          <div class="grid">
-            <div class="card">
-              <h2>Infinite Series</h2>
+            <section class="page" id="topics">
+                <div class="grid">
+                    <div class="card">
+                        <h2>Infinite Series</h2>
 
-              <p>
-                Learn about convergence, divergence, Taylor series, and Fourier
-                analysis.
-              </p>
-            </div>
-          </div>
-        </section>
+                        <p>
+                            Learn about convergence, divergence, Taylor series, and Fourier
+                            analysis.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- MATHEMATICIANS -->
+            <!-- MATHEMATICIANS -->
 
-        <section class="page" id="mathematicians">
-          <div class="grid">
-            <div class="card">
-              <h2>Euclid</h2>
+            <section class="page" id="mathematicians">
+                <div class="grid">
+                    <div class="card">
+                        <h2>Euclid</h2>
 
-              <p>Learn how Euclid affected geometry.</p>
-            </div>
-          </div>
-        </section>
+                        <p>Learn how Euclid affected geometry.</p>
+                    </div>
+                </div>
+            </section>
 
-        <section class="page" id="concept-page">
-          <div class="card" id="conceptContent">
-            <h2>Select a concept</h2>
-          </div>
-        </section>
-      </main>
+            <section class="page" id="concept-page">
+                <div class="card" id="conceptContent">
+                    <h2>Select a concept</h2>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
 
-                        // PAGE NAVIGATION
+        // PAGE NAVIGATION
 
-                        const navButtons =
-                          document.querySelectorAll('.nav-btn');
+        const navButtons =
+            document.querySelectorAll('.nav-btn');
 
-                        const pages =
-                          document.querySelectorAll('.page');
+        const pages =
+            document.querySelectorAll('.page');
 
-                        navButtons.forEach(button => {
+        navButtons.forEach(button => {
 
-                          button.addEventListener('click', () => {
+            button.addEventListener('click', () => {
 
-                            navButtons.forEach(btn =>
-                              btn.classList.remove('active')
-                            );
+                navButtons.forEach(btn =>
+                    btn.classList.remove('active')
+                );
 
-                            button.classList.add('active');
+                button.classList.add('active');
 
-                            const pageId =
-                              button.dataset.page;
+                const pageId =
+                    button.dataset.page;
 
-                            pages.forEach(page =>
-                              page.classList.remove('active')
-                            );
+                pages.forEach(page =>
+                    page.classList.remove('active')
+                );
 
-                            const target =
-                              document.getElementById(pageId);
+                const target =
+                    document.getElementById(pageId);
 
-                            if (target) {
-                              target.classList.add('active');
+                if (target) {
+                    target.classList.add('active');
+                }
+
+            });
+
+        });
+
+        function openPage(pageId) {
+
+            pages.forEach(page =>
+                page.classList.remove('active')
+            );
+
+            navButtons.forEach(btn =>
+                btn.classList.remove('active')
+            );
+
+            const page =
+                document.getElementById(pageId);
+
+            if (page) {
+                page.classList.add('active');
+            }
+
+            const activeButton =
+                document.querySelector(
+                    `[data-page="${pageId}"]`
+                );
+
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+
+        }
+
+        // KATEX
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+
+                renderMathInElement(
+                    document.body,
+                    {
+                        delimiters: [
+
+                            {
+                                left: "\\(",
+                                right: "\\)",
+                                display: false
+                            },
+
+                            {
+                                left: "\\[",
+                                right: "\\]",
+                                display: true
                             }
 
-                          });
+                        ]
+                    }
+                );
 
-                        });
+            }
+        );
 
-                        function openPage(pageId) {
+        // SEARCH
 
-                          pages.forEach(page =>
-                            page.classList.remove('active')
-                          );
+        const searchInput =
+            document.getElementById('searchInput');
 
-                          navButtons.forEach(btn =>
-                            btn.classList.remove('active')
-                          );
+        const searchResults =
+            document.getElementById('searchResults');
 
-                          const page =
-                            document.getElementById(pageId);
+        const searchableCards =
+            document.querySelectorAll('.searchable');
 
-                          if (page) {
-                            page.classList.add('active');
-                          }
+        searchInput.addEventListener(
+            'input',
+            () => {
 
-                          const activeButton =
-                            document.querySelector(
-                              `[data-page="${pageId}"]`
-                            );
+                const query =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
 
-                          if (activeButton) {
-                            activeButton.classList.add('active');
-                          }
+                searchResults.innerHTML = '';
 
-                        }
+                if (query === '') {
 
-                        // CALCULATOR
+                    searchResults.style.display =
+                        'none';
 
-                        let angleMode = 'radians';
+                    return;
 
-                        math.import({
+                }
 
-                          phi: 1.618033988749895,
+                let resultsFound = 0;
 
-                          cot: (x) => 1 / Math.tan(x),
+                searchableCards.forEach(card => {
 
-                          sec: (x) => 1 / Math.cos(x),
+                    const title =
+                        card.dataset.title || '';
 
-                          csc: (x) => 1 / Math.sin(x)
+                    const keywords =
+                        card.dataset.keywords || '';
 
-                        }, { override: true });
+                    const text =
+                        card.innerText;
 
-                        function setAngleMode(mode) {
+                    const combined =
+                        (
+                            title +
+                            ' ' +
+                            keywords +
+                            ' ' +
+                            text
+                        ).toLowerCase();
 
-                          angleMode = mode;
+                    if (
+                        combined.includes(query)
+                    ) {
 
-                          const radBtn =
-                            document.getElementById('radianBtn');
+                        resultsFound++;
 
-                          const degBtn =
-                            document.getElementById('degreeBtn');
+                        const resultItem =
+                            document.createElement('div');
 
-                          radBtn.classList.remove(
-                            'primary-btn',
-                            'secondary-btn'
-                          );
-
-                          degBtn.classList.remove(
-                            'primary-btn',
-                            'secondary-btn'
-                          );
-
-                          if (mode === 'radians') {
-
-                            radBtn.classList.add('primary-btn');
-                            degBtn.classList.add('secondary-btn');
-
-                          } else {
-
-                            degBtn.classList.add('primary-btn');
-                            radBtn.classList.add('secondary-btn');
-
-                          }
-
-                          updatePreview();
-
-                        }
-
-                        function preprocessExpression(expr) {
-
-                          if (angleMode === 'degrees') {
-
-                            expr = expr.replace(
-                              /sin\((.*?)\)/g,
-                              'sin(($1) * pi / 180)'
-                            );
-
-                            expr = expr.replace(
-                              /cos\((.*?)\)/g,
-                              'cos(($1) * pi / 180)'
-                            );
-
-                            expr = expr.replace(
-                              /tan\((.*?)\)/g,
-                              'tan(($1) * pi / 180)'
-                            );
-
-                          }
-
-                          return expr;
-
-                        }
-
-                        function updatePreview() {
-
-                          const input =
-                            document.getElementById('calcInput').value;
-
-                          const preview =
-                            document.getElementById('livePreview');
-
-                          if (input.trim() === '') {
-
-                            preview.innerHTML =
-                              'Awaiting input...';
-
-                            return;
-
-                          }
-
-                          try {
-
-                            const node =
-                              math.parse(input);
-
-                            const latex =
-                              node.toTex({
-                                parenthesis: 'keep'
-                              });
-
-                            katex.render(
-                              latex,
-                              preview,
-                              {
-                                throwOnError: false,
-                                displayMode: true
-                              }
-                            );
-
-                          }
-
-                          catch {
-
-                            preview.innerHTML =
-                              'Invalid expression';
-
-                          }
-
-                        }
-
-                        function derivative(f, x) {
-
-                          const h = 1e-6;
-
-                          const scope1 = {
-                            x: x + h
-                          };
-
-                          const scope2 = {
-                            x: x - h
-                          };
-
-                          return (
-                            math.evaluate(f, scope1)
-                            -
-                            math.evaluate(f, scope2)
-                          ) / (2 * h);
-
-                        }
-
-                        function integrate(
-                          f,
-                          variable,
-                          a = 0,
-                          b = 1
-                        ) {
-
-                          const n = 2000;
-
-                          const dx = (b - a) / n;
-
-                          let sum = 0;
-
-                          for (let i = 0; i < n; i++) {
-
-                            const x =
-                              a + i * dx;
-
-                            sum +=
-                              math.evaluate(f, { x }) * dx;
-
-                          }
-
-                          return sum;
-
-                        }
-
-                        function limit(
-                          f,
-                          variable,
-                          a
-                        ) {
-
-                          const eps = 1e-6;
-
-                          const left =
-                            math.evaluate(f, {
-                              x: a - eps
-                            });
-
-                          const right =
-                            math.evaluate(f, {
-                              x: a + eps
-                            });
-
-                          return (left + right) / 2;
-
-                        }
-
-                        function cleanNumber(x) {
-
-                          if (typeof x === 'number') {
-
-                            if (!isFinite(x)) {
-                              return 'undefined';
-                            }
-
-                            if (Math.abs(x) < 1e-12) {
-                              return 0;
-                            }
-
-                            return (
-                              Math.round(x * 1e12)
-                              / 1e12
-                            );
-
-                          }
-
-                          return x;
-
-                        }
-
-                        function calculate() {
-
-                          const input =
-                            document.getElementById('calcInput').value;
-
-                          const result =
-                            document.getElementById('calcResult');
-
-                          try {
-
-                            let processed =
-                              preprocessExpression(input);
-
-                            const evaluated =
-                              math.evaluate(processed, {
-
-                                derivative,
-                                integrate,
-                                limit
-
-                              });
-
-                            result.innerHTML =
-                              cleanNumber(evaluated);
-
-                          }
-
-                          catch (err) {
-
-                            result.innerHTML =
-                              'Invalid expression';
-
-                            console.error(err);
-
-                          }
-
-                        }
-
-                        // LIVE PREVIEW
-
-                        document
-                          .getElementById('calcInput')
-                          .addEventListener(
-                            'input',
-                            updatePreview
-                          );
-
-                        // ENTER KEY
-
-                        document
-                          .getElementById('calcInput')
-                          .addEventListener(
-                            'keydown',
-                            (e) => {
-
-                              if (e.key === 'Enter') {
-                                calculate();
-                              }
-
-                            }
-                          );
-
-                        // KATEX
-
-                        document.addEventListener(
-                          'DOMContentLoaded',
-                          function() {
-
-                            renderMathInElement(
-                              document.body,
-                              {
-                                delimiters: [
-
-                                  {
-                                    left: "\\(",
-                                    right: "\\)",
-                                    display: false
-                                  },
-
-                                  {
-                                    left: "\\[",
-                                    right: "\\]",
-                                    display: true
-                                  }
-
-                                ]
-                              }
-                            );
-
-                          }
+                        resultItem.classList.add(
+                            'search-result-item'
                         );
 
-                        // SEARCH
-
-                        const searchInput =
-                          document.getElementById('searchInput');
-
-                        const searchResults =
-                          document.getElementById('searchResults');
-
-                        const searchableCards =
-                          document.querySelectorAll('.searchable');
-
-                        searchInput.addEventListener(
-                          'input',
-                          () => {
-
-                            const query =
-                              searchInput.value
-                              .toLowerCase()
-                              .trim();
-
-                            searchResults.innerHTML = '';
-
-                            if (query === '') {
-
-                              searchResults.style.display =
-                                'none';
-
-                              return;
-
-                            }
-
-                            let resultsFound = 0;
-
-                            searchableCards.forEach(card => {
-
-                              const title =
-                                card.dataset.title || '';
-
-                              const keywords =
-                                card.dataset.keywords || '';
-
-                              const text =
-                                card.innerText;
-
-                              const combined =
-                                (
-                                  title +
-                                  ' ' +
-                                  keywords +
-                                  ' ' +
-                                  text
-                                ).toLowerCase();
-
-                              if (
-                                combined.includes(query)
-                              ) {
-
-                                resultsFound++;
-
-                                const resultItem =
-                                  document.createElement('div');
-
-                                resultItem.classList.add(
-                                  'search-result-item'
-                                );
-
-                                resultItem.innerHTML = `
+                        resultItem.innerHTML = `
                                   <h4>${title}</h4>
                                 `;
 
-                                resultItem.addEventListener(
-        'click',
-        () => {
+                        resultItem.addEventListener(
+                            'click',
+                            () => {
 
-          const pageName =
-            card.dataset.page;
+                                const pageName =
+                                    card.dataset.page;
 
-          const content =
-            conceptPages[pageName];
+                                const content =
+                                    conceptPages[pageName];
 
-          if (!content) return;
+                                if (!content) return;
 
-          openPage('concept-page');
+                                openPage('concept-page');
 
-          const container =
-            document.getElementById(
-              'conceptContent'
-            );
+                                const container =
+                                    document.getElementById(
+                                        'conceptContent'
+                                    );
 
-          container.innerHTML =
-            content;
+                                container.innerHTML =
+                                    content;
 
-          renderMathInElement(
-            container,
-            {
-              delimiters: [
+                                renderMathInElement(
+                                    container,
+                                    {
+                                        delimiters: [
 
-                {
-                  left: "\\(",
-                  right: "\\)",
-                  display: false
-                },
+                                            {
+                                                left: "\\(",
+                                                right: "\\)",
+                                                display: false
+                                            },
 
-                {
-                  left: "\\[",
-                  right: "\\]",
-                  display: true
-                }
+                                            {
+                                                left: "\\[",
+                                                right: "\\]",
+                                                display: true
+                                            }
 
-              ]
-            }
-          );
-
-          searchResults.style.display =
-            'none';
-
-          searchInput.value =
-            title;
-
-        }
-      );
-
-                                searchResults.appendChild(
-                                  resultItem
+                                        ]
+                                    }
                                 );
 
-                              }
+                                searchResults.style.display =
+                                    'none';
 
-                            });
+                                searchInput.value =
+                                    title;
 
-                            if (resultsFound > 0) {
+                            }
+                        );
 
-                              searchResults.style.display =
-                                'block';
+                        searchResults.appendChild(
+                            resultItem
+                        );
 
-                            } else {
+                    }
 
-                              searchResults.innerHTML = `
+                });
+
+                if (resultsFound > 0) {
+
+                    searchResults.style.display =
+                        'block';
+
+                } else {
+
+                    searchResults.innerHTML = `
                                 <div class="search-result-item">
                                   <p>No results found.</p>
                                 </div>
                               `;
 
-                              searchResults.style.display =
-                                'block';
+                    searchResults.style.display =
+                        'block';
 
-                            }
+                }
 
-                          }
-                        );
+            }
+        );
 
-                        // CLOSE SEARCH
+        // CLOSE SEARCH
 
-                        document.addEventListener(
-                          'click',
-                          (event) => {
+        document.addEventListener(
+            'click',
+            (event) => {
 
-                            if (
-                              !event.target.closest('.searchbar')
-                            ) {
+                if (
+                    !event.target.closest('.searchbar')
+                ) {
 
-                              searchResults.style.display =
-                                'none';
+                    searchResults.style.display =
+                        'none';
 
-                            }
+                }
 
-                          }
-                        );
+            }
+        );
 
-                        // CONCEPT ARTICLE DATABASE
+        // CONCEPT ARTICLE DATABASE
 
-            const conceptPages = {
+        const conceptPages = {
 
-              "quadratic-formula": `
+            "quadratic-formula": `
                   <h1>
                     Quadratic Formula
                   </h1>
@@ -1349,7 +1023,7 @@
 
               `,
 
-              "pythagorean-theorem": `
+            "pythagorean-theorem": `
                   <h1>
                     Pythagorean Theorem
                   </h1>
@@ -1381,7 +1055,7 @@
 
               `,
 
-              "trigonometric-functions": `
+            "trigonometric-functions": `
                 <h1>
                   Trigonometric Functions
                 </h1>
@@ -1402,61 +1076,394 @@
                 </p>
               `
 
-            };
+        };
 
-            // OPEN CUSTOM ARTICLE PAGES
+        // OPEN CUSTOM ARTICLE PAGES
 
-            document
-              .querySelectorAll('.linked-card')
-              .forEach(card => {
+        document
+            .querySelectorAll('.linked-card')
+            .forEach(card => {
 
                 card.addEventListener(
-                  'click',
-                  () => {
+                    'click',
+                    () => {
 
-                    const pageName =
-                      card.dataset.page;
+                        const pageName =
+                            card.dataset.page;
 
-                    const content =
-                      conceptPages[pageName];
+                        const content =
+                            conceptPages[pageName];
 
-                    if (!content) return;
+                        if (!content) return;
 
-                    openPage('concept-page');
+                        openPage('concept-page');
 
-                    const container =
-                      document.getElementById(
-                        'conceptContent'
-                      );
+                        const container =
+                            document.getElementById(
+                                'conceptContent'
+                            );
 
-                    container.innerHTML =
-                      content;
+                        container.innerHTML =
+                            content;
 
-                    renderMathInElement(
-                      container,
-                      {
-                        delimiters: [
+                        renderMathInElement(
+                            container,
+                            {
+                                delimiters: [
 
-                          {
-                            left: "\\(",
-                            right: "\\)",
-                            display: false
-                          },
+                                    {
+                                        left: "\\(",
+                                        right: "\\)",
+                                        display: false
+                                    },
 
-                          {
-                            left: "\\[",
-                            right: "\\]",
-                            display: true
-                          }
+                                    {
+                                        left: "\\[",
+                                        right: "\\]",
+                                        display: true
+                                    }
 
-                        ]
-                      }
-                    );
+                                ]
+                            }
+                        );
 
-                  }
+                    }
                 );
 
-              });
+            });
+
+        // ANGLE MODE
+
+        let angleMode = 'radians';
+
+        function setAngleMode(mode) {
+
+            angleMode = mode;
+
+            const radBtn = document.getElementById('radianBtn');
+            const degBtn = document.getElementById('degreeBtn');
+
+            if (mode === 'radians') {
+
+                radBtn.className = 'primary-btn';
+                degBtn.className = 'secondary-btn';
+
+            } else {
+
+                degBtn.className = 'primary-btn';
+                radBtn.className = 'secondary-btn';
+
+            }
+
+        }
+
+        // CONSTANTS
+
+        const CONSTANTS = {
+            pi: Math.PI,
+            e: Math.E,
+            tau: Math.PI * 2,
+            phi: (1 + Math.sqrt(5)) / 2,
+            psi: (1 - Math.sqrt(5)) / 2,
+            gamma: 0.577215664901532
+        };
+
+        // FUNCTION DEFINITION
+
+        const FUNCTIONS = {
+
+            sin: x => Math.sin(x),
+            cos: x => Math.cos(x),
+            tan: x => Math.tan(x),
+            sec: x => 1 / Math.cos(x),
+            csc: x => 1 / Math.sin(x),
+            cot: x => 1 / Math.tan(x),
+            arcsin: x => Math.asin(x),
+            arccos: x => Math.acos(x),
+            arctan: x => Math.atan(x),
+            arcsec: x => {
+                if (math.abs(x) < 1) {
+                    throw new Error('arcsec domain error: |x| must be >= 1');
+                }
+            },
+            arccsc: x => {
+                if (math.abs(x) < 1) {
+                    throw new Error('arccsc domain error: |x| must be >= 1');
+                }
+            },
+            arccot: x => {
+                if (math.abs(x) < 1) {
+                    throw new Error('arccot domain error: |x| must be >= 1');
+                }
+            },
+
+            ln: x => Math.log(x),
+            log: x => Math.log10(x),
+
+            sqrt: x => Math.sqrt(x),
+            abs: x => Math.abs(x),
+
+            floor: x => Math.floor(x),
+            ceil: x => Math.ceil(x)
+
+        };
+
+        // UTILITIES
+
+        function toRadians(x) {
+            return x * Math.PI / 180;
+        }
+
+        // PREPROCESSOR
+
+        function preprocessExpression(expr) {
+
+            let processed = expr;
+
+            // IMPLICIT MULTIPLICATION
+            processed = processed.replace(/(\d)([a-zA-Z\(])/g, '$1*$2');
+
+            // CONSTANTS
+            processed = processed.replace(/\bpi\b/g, CONSTANTS.pi);
+            processed = processed.replace(/\be\b/g, CONSTANTS.e);
+
+            // DEGREES FROM RADIANS
+            if (angleMode === 'degrees') {
+
+                processed = processed.replace(/sin\((.*?)\)/g, (_, x) => `sin((${x})*pi/180)`);
+                processed = processed.replace(/cos\((.*?)\)/g, (_, x) => `cos((${x})*pi/180)`);
+                processed = processed.replace(/tan\((.*?)\)/g, (_, x) => `tan((${x})*pi/180)`);
+
+            }
+
+            return processed;
+
+        }
+
+        // CAS CORE
+
+        function evaluateExpression(expr) {
+
+            expr = preprocessExpression(expr);
+
+            // replace functions manually
+            for (const name in FUNCTIONS) {
+
+                const fn = FUNCTIONS[name];
+
+                const regex = new RegExp(`${name}\\((.*?)\\)`, 'g');
+
+                expr = expr.replace(regex, (_, arg) => {
+
+                    const value = evaluateExpression(arg);
+
+                    return fn(value);
+
+                });
+
+            }
+
+            try {
+                return Function('"use strict"; return (' + expr + ')')();
+            }
+            catch (e) {
+                throw new Error('Invalid expression');
+            }
+
+        }
+
+        // NUMERICAL CALCULUS ENGINE
+
+        function numericalDerivative(fn, x, h = 1e-6) {
+            return (fn(x + h) - fn(x - h)) / (2 * h);
+        }
+
+        function numericalIntegral(fn, a, b, n = 1000) {
+
+            const dx = (b - a) / n;
+            let sum = 0;
+
+            for (let i = 0; i < n; i++) {
+
+                const x = a + i * dx;
+                sum += fn(x) * dx;
+
+            }
+
+            return sum;
+
+        }
+
+        function numericalLimit(fn, x, h = 1e-7) {
+            return (fn(x - h) + fn(x + h)) / 2;
+        }
+
+        // MAIN ENGINE
+
+        function calculate() {
+
+            const resultElement =
+                document.getElementById('calcResult');
+
+            let expr =
+                document.getElementById('calcInput').value.trim();
+
+            if (!expr) {
+
+                resultElement.innerText =
+                    'Please enter an expression.';
+
+                return;
+
+            }
+
+            try {
+
+                // DIFFERENTIATION
+                if (expr.startsWith('derivative(')) {
+
+                    const inside =
+                        expr.replace('derivative(', '').slice(0, -1);
+
+                    const parts =
+                        inside.split(',');
+
+                    const functionExpr =
+                        parts[0].replaceAll('"', '').trim();
+
+                    const xValue =
+                        parseFloat(parts[1]);
+
+                    const fn =
+                        x => evaluateExpression(functionExpr.replace(/x/g, `(${x})`));
+
+                    const result =
+                        numericalDerivative(fn, xValue);
+
+                    resultElement.innerText = result;
+
+                    return;
+
+                }
+
+                // INTEGRATION
+                if (expr.startsWith('integrate(')) {
+
+                    const inside =
+                        expr.replace('integrate(', '').slice(0, -1);
+
+                    const parts =
+                        inside.split(',');
+
+                    const functionExpr =
+                        parts[0].trim();
+
+                    const a = parseFloat(parts[2]);
+                    const b = parseFloat(parts[3]);
+
+                    const fn =
+                        x => evaluateExpression(functionExpr.replace(/x/g, `(${x})`));
+
+                    const result =
+                        numericalIntegral(fn, a, b);
+
+                    resultElement.innerText = result;
+
+                    return;
+
+                }
+
+                // LIMITS
+                if (expr.startsWith('limit(')) {
+
+                    const inside =
+                        expr.replace('limit(', '').slice(0, -1);
+
+                    const parts =
+                        inside.split(',');
+
+                    const functionExpr =
+                        parts[0].replaceAll('"', '').trim();
+
+                    const xValue =
+                        parseFloat(parts[2]);
+
+                    const fn =
+                        x => evaluateExpression(functionExpr.replace(/x/g, `(${x})`));
+
+                    const result =
+                        numericalLimit(fn, xValue);
+
+                    resultElement.innerText = result;
+
+                    return;
+
+                }
+
+                // NORMAL EVALUATION
+                const result =
+                    evaluateExpression(expr);
+
+                resultElement.innerText =
+                    result;
+
+            }
+
+            catch (err) {
+
+                resultElement.innerText =
+                    'Error: ' + err.message;
+
+            }
+
+        }
+
+        // LIVE PREVIEW
+
+        const calcInput =
+            document.getElementById('calcInput');
+
+        const livePreview =
+            document.getElementById('livePreview');
+
+        calcInput.addEventListener('input', () => {
+
+            const value = calcInput.value.trim();
+
+            if (!value) {
+
+                livePreview.innerHTML =
+                    'Awaiting input...';
+
+                return;
+
+            }
+
+            livePreview.innerHTML =
+                `\\[${value}\\]`;
+
+            renderMathInElement(livePreview, {
+                delimiters: [
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+
+        });
+
+        // KATEX INIT
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ]
+            });
+
+        });
+
     </script>
-  </body>
+</body>
+
 </html>
