@@ -1,0 +1,6 @@
+{
+  "title": "Existence of Odd Perfect Numbers",
+  "subtitle": "Unsolved problem",
+  "summary": "No odd perfect number has ever been found. It is unknown whether one exists.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>A perfect number equals the sum of its proper divisors: \\(\\sigma(n)=2n\\). All known perfect numbers are even. Any odd perfect number must exceed \\(10^{1500}\\) and have at least 101 prime factors.</p>"
+}

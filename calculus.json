@@ -1,0 +1,6 @@
+{
+  "title": "Calculus",
+  "subtitle": "Derivatives, integrals, and limits",
+  "summary": "Differential and integral calculus: limits, derivatives, integrals, and the fundamental theorem.",
+  "detail": "<p style='line-height:1.9'>Differential calculus studies instantaneous rates of change. The derivative \\(f'(x)=\\lim_{h\\to 0}(f(x+h)-f(x))/h\\) measures the slope of \\(f\\) at \\(x\\). Key rules: product, quotient, chain. Integral calculus studies accumulation: \\(\\int_a^b f(x)\\,dx\\) is the signed area under \\(f\\).</p><p style='margin-top:12px;line-height:1.9'>The Fundamental Theorem of Calculus unites both: if \\(F'=f\\) then \\(\\int_a^b f\\,dx=F(b)-F(a)\\). Techniques include substitution, integration by parts, partial fractions, and trigonometric substitution. Applications span physics, engineering, economics, and every quantitative science.</p>"
+}

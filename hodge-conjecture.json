@@ -1,0 +1,6 @@
+{
+  "title": "Hodge Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "On a complex projective manifold, every Hodge class is a rational linear combination of cohomology classes of algebraic cycles.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>Clay Millennium Prize Problem.</p><div class='formula-box'>\\[H^{2k}(X,\\mathbb{Q})\\cap H^{k,k}(X)=?\\text{ algebraic}\\]</div>"
+}

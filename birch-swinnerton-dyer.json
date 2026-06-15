@@ -1,0 +1,6 @@
+{
+  "title": "Birch & Swinnerton-Dyer Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "The rank of an elliptic curve's rational points equals the order of vanishing of its L-function at s=1.",
+  "detail": "<div class='formula-box'>\\[\\operatorname{ord}_{s=1}L(E,s)=\\operatorname{rank}(E(\\mathbb{Q}))\\]</div><p style='margin-top:12px;line-height:1.9'>Proved for rank 0 and 1 in special cases (Coates–Wiles, Kolyvagin). The full conjecture is open. Clay Millennium Prize Problem.</p>"
+}

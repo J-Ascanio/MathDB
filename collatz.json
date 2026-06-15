@@ -1,0 +1,6 @@
+{
+  "title": "Collatz Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "Starting from any positive integer, the sequence always reaches 1.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>Verified for all integers up to 2⁶⁸.</p><div class='formula-box'>\\[f(n)=\\begin{cases}n/2&n\\text{ even}\\\\3n+1&n\\text{ odd}\\end{cases}\\]</div>"
+}

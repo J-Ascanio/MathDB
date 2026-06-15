@@ -1,0 +1,6 @@
+{
+  "title": "Linear Algebra",
+  "subtitle": "Vector spaces and linear maps",
+  "summary": "Vector spaces, matrices, eigenvalues, inner products, SVD, and the spectral theorem.",
+  "detail": "<p style='line-height:1.9'>Studies vector spaces and linear maps between them. A vector space over a field \\(F\\) is a set with addition and scalar multiplication satisfying axioms. Linear maps preserve these operations; their matrix representations depend on the choice of basis.</p><p style='margin-top:12px;line-height:1.9'>The eigenvalue problem \\(Av=\\lambda v\\) is central: the spectral theorem says symmetric matrices have orthonormal eigenbases with real eigenvalues. SVD decomposes any matrix as \\(A=U\\Sigma V^T\\), revealing its geometric action. Applications: least squares, PCA, Fourier analysis (DFT as a change of basis), quantum mechanics (observables as Hermitian operators).</p>"
+}

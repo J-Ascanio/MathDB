@@ -1,0 +1,6 @@
+{
+  "title": "Twin Prime Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "There are infinitely many primes p such that p+2 is also prime.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>Bounded gaps result (Yitang Zhang, 2013): infinitely many primes separated by at most 246 (Polymath project). Full conjecture open.</p><div class='formula-box'>\\[\\exists^\\infty p:\\;p+2\\text{ is prime}\\]</div>"
+}

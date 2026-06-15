@@ -1,0 +1,6 @@
+{
+  "title": "abc Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "For coprime a+b=c, the radical rad(abc) is almost always larger than c.",
+  "detail": "<div class='formula-box'>\\[c<\\operatorname{rad}(abc)^{1+\\varepsilon}\\text{ for all }\\varepsilon>0\\text{ (finitely many exceptions)}\\]</div><p style='margin-top:12px;line-height:1.9'>Implies Fermat's Last Theorem and many other results. Mochizuki claims a proof (2012), but the mathematical community has not reached consensus.</p>"
+}

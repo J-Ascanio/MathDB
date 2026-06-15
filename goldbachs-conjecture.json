@@ -1,0 +1,6 @@
+{
+  "title": "Goldbach's Conjecture",
+  "subtitle": "Unsolved problem",
+  "summary": "Every even integer greater than 2 is the sum of two primes.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>Proposed in 1742. Verified computationally up to 4×10¹⁸. Chen (1966) proved every sufficiently large even integer is the sum of a prime and a product of at most two primes.</p><div class='formula-box'>\\[\\forall n\\ge 2,\\;2n=p+q\\text{ for primes }p,q\\]</div>"
+}

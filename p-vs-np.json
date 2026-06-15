@@ -1,0 +1,6 @@
+{
+  "title": "P vs NP",
+  "subtitle": "Unsolved problem",
+  "summary": "Is every efficiently verifiable problem also efficiently solvable? Clay Millennium Prize.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>The central open problem in theoretical computer science.</p><div class='formula-box'>\\[\\text{Does }P=NP?\\]</div><p style='margin-top:12px;line-height:1.9'><strong>P</strong>: decidable in polynomial time. <strong>NP</strong>: verifiable in polynomial time. Most experts believe P≠NP, but no proof exists. A proof of P=NP would break most public-key cryptography.</p>"
+}

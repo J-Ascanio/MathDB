@@ -1,0 +1,6 @@
+{
+  "title": "Number Theory",
+  "subtitle": "The integers and their structure",
+  "summary": "Primes, modular arithmetic, Diophantine equations, L-functions, elliptic curves.",
+  "detail": "<p style='line-height:1.9'>Studies properties of the integers \\(\\mathbb{Z}\\). Elementary number theory covers divisibility, the Euclidean algorithm, prime factorisation (fundamental theorem of arithmetic), and modular arithmetic. Key theorems: Fermat's little theorem, Euler's theorem, and the Chinese remainder theorem.</p><p style='margin-top:12px;line-height:1.9'>Analytic number theory uses analysis to study primes — the prime number theorem \\(\\pi(x)\\sim x/\\ln x\\) is its cornerstone. Algebraic number theory extends \\(\\mathbb{Z}\\) to rings of integers in number fields. Modern research focuses on elliptic curves, modular forms, and the Langlands program — a vast web of conjectures unifying number theory with representation theory.</p>"
+}

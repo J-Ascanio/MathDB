@@ -1,0 +1,6 @@
+{
+  "title": "Complex Analysis",
+  "subtitle": "Functions of a complex variable",
+  "summary": "Holomorphic functions, Cauchy's theorem, residues, conformal maps, Riemann surfaces.",
+  "detail": "<p style='line-height:1.9'>Studies functions \\(f:\\mathbb{C}\\to\\mathbb{C}\\) that are complex-differentiable (holomorphic). Holomorphic functions are infinitely differentiable and equal their Taylor series, making them far more rigid than real-differentiable functions.</p><p style='margin-top:12px;line-height:1.9'>The Cauchy integral formula \\(f(z_0)=\\frac{1}{2\\pi i}\\oint_C \\frac{f(z)}{z-z_0}dz\\) expresses function values via contour integrals. The residue theorem evaluates real integrals by summing residues at poles. Conformal maps preserve angles locally and underlie complex function theory's connection to fluid dynamics and electrostatics.</p>"
+}

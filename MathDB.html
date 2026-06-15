@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MathDB</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="KaTeX/katex.min.css"/>
+<script defer src="KaTeX/katex.min.js"></script>
+<script defer src="KaTeX/auto-render.min.js"></script>
+<script src="math.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo"><h1>MathDB</h1><p>Mathematical Workspace</p></div>
+  <div class="nav-section-title">Navigation</div>
+  <div class="nav-links">
+    <button class="nav-btn active" data-page="home">Home</button>
+    <button class="nav-btn" data-page="calculator">Calculator</button>
+    <button class="nav-btn" data-page="formulas">Formulas</button>
+    <button class="nav-btn" data-page="functions">Functions</button>
+    <button class="nav-btn" data-page="topics">Topics</button>
+    <button class="nav-btn" data-page="constants">Constants</button>
+    <button class="nav-btn" data-page="mathematicians">Mathematicians</button>
+    <button class="nav-btn" data-page="research">Research</button>
+  </div>
+</aside>
+
+<main class="main">
+<div class="topbar">
+  <h2 style="font-size:1.05rem;font-weight:600;color:var(--muted);white-space:nowrap;">Mathematical Reference Database</h2>
+  <div class="searchbar">
+    <input type="text" id="searchInput" placeholder="Search formulas, functions, constants…"/>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
+
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="hero">
+    <h1>The Modern Mathematical Reference Platform</h1>
+    <p>Interactive graphing (explicit, implicit, parametric, polar), symbolic CAS, multi-mode calculus, matrices, vectors, regression, and a growing reference database.</p>
+    <div class="hero-buttons">
+      <button class="primary-btn" onclick="openPage('calculator')">Open Calculator</button>
+      <button class="secondary-btn" onclick="openPage('topics')">Explore Topics</button>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card linked-card" onclick="openPage('calculator')"><h2>Calculator</h2><p>Graphing, symbolic CAS, calculus, matrices, vector calculus, regression.</p></div>
+    <div class="card linked-card" onclick="openPage('formulas')"><h2>Formulas</h2><p>Reference across algebra, geometry, calculus, number theory, and more.</p></div>
+    <div class="card linked-card" onclick="openPage('functions')"><h2>Functions</h2><p>Encyclopedia of special functions — trig through hypergeometric.</p></div>
+    <div class="card linked-card" onclick="openPage('constants')"><h2>Constants</h2><p>Mathematical and physical constants with values and descriptions.</p></div>
+    <div class="card linked-card" onclick="openPage('topics')"><h2>Topics</h2><p>Real analysis, algebra, topology, number theory, and beyond.</p></div>
+    <div class="card linked-card" onclick="openPage('mathematicians')"><h2>Mathematicians</h2><p>Profiles of those who shaped mathematics from antiquity to today.</p></div>
+    <div class="card linked-card" onclick="openPage('research')"><h2>Research</h2><p>Unsolved problems across mathematics.</p></div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="page" id="calculator">
+  <div class="calc-outer">
+    <!-- Left sidebar: Expressions + Stats -->
+    <div class="expr-sidebar">
+      <div class="etabs">
+        <button class="etab active" data-etab="exprs">Expressions</button>
+        <button class="etab" data-etab="stats">Statistics</button>
+        <button class="etab" data-etab="contour">Contour</button>
+        <button class="etab" data-etab="complex">Complex</button>
+        <button class="etab" data-etab="mattf">Matrix Tf</button>
+      </div>
+      <!-- Expressions -->
+      <div class="ebody active" id="ebody-exprs">
+        <div class="expr-list" id="exprList"></div>
+        <button class="expr-add-btn" onclick="addExpr()">+ Add Expression</button>
+        <div class="expr-footer">
+          <button class="vbtn va" onclick="zoomFit()">Fit</button>
+          <button class="vbtn" onclick="gZoom(0.77)">&#8722;</button>
+          <button class="vbtn" onclick="gZoom(1.3)">+</button>
+          <button class="vbtn" onclick="smoothReset()">Reset</button>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div class="ebody" id="ebody-stats">
+        <div class="stats-panel">
+          <div class="sp-sec">
+            <div class="sp-title">Descriptive Statistics</div>
+            <label class="fl" style="font-size:.65rem">X values (comma-separated)</label>
+            <input class="si" id="statX" value="1,2,3,4,5" oninput="autoStats()"/>
+            <label class="fl" style="font-size:.65rem">Y values (optional)</label>
+            <input class="si" id="statY" value="2,4,6,8,10" oninput="autoStats()"/>
+            <div class="sres" id="statsResult">Enter data above…</div>
+          </div>
+          <div class="sp-sec">
+            <div class="sp-title">Regression</div>
+            <select class="ss" id="regType">
+              <option value="linear">Linear  y=ax+b</option>
+              <option value="quadratic">Quadratic  y=ax²+bx+c</option>
+              <option value="cubic">Cubic</option>
+              <option value="exponential">Exponential  y=ae^(bx)</option>
+              <option value="logarithmic">Logarithmic  y=a·ln(x)+b</option>
+              <option value="power">Power  y=ax^b</option>
+            </select>
+            <button class="sb" onclick="doRegression()">Fit &amp; Graph</button>
+            <button class="sb danger" onclick="clearRegression()">Clear Regression</button>
+            <div class="sres" id="regResult">—</div>
+          </div>
+        </div>
+      </div>
+      <!-- Contour -->
+      <div class="ebody" id="ebody-contour">
+        <div class="stats-panel">
+          <div class="sp-sec">
+            <div class="sp-title">Contour Map f(x,y)</div>
+            <input class="si" id="contourF" value="sin(x)*cos(y)" oninput="scheduleContour()"/>
+            <label class="fl" style="font-size:.65rem;margin-top:4px">Levels</label>
+            <input class="si" id="contourN" value="14" type="number" min="2" max="40" oninput="scheduleContour()"/>
+            <label class="fl" style="font-size:.65rem;margin-top:4px">Colour scheme</label>
+            <select class="ss" id="contourScheme" onchange="scheduleContour()">
+              <option value="cool">Cool</option><option value="heat">Heat</option><option value="viridis">Viridis</option>
+            </select>
+            <button class="sb" onclick="scheduleContour()">Render</button>
+          </div>
+        </div>
+      </div>
+      <!-- Complex -->
+      <div class="ebody" id="ebody-complex">
+        <div class="stats-panel">
+          <div class="sp-sec">
+            <div class="sp-title">Domain Colouring f(z)</div>
+            <input class="si" id="complexF" value="z^2" oninput="scheduleComplex()"/>
+            <p style="font-size:.7rem;color:var(--muted);margin-top:4px;line-height:1.5">Hue = arg(f(z)), brightness = |f(z)|. Use <code style="font-family:var(--mono);color:var(--accent2)">z</code> as the complex variable.</p>
+            <button class="sb" style="margin-top:8px" onclick="scheduleComplex()">Render</button>
+          </div>
+        </div>
+      </div>
+      <!-- Matrix Transform -->
+      <div class="ebody" id="ebody-mattf">
+        <div class="stats-panel">
+          <div class="sp-sec">
+            <div class="sp-title">2D Linear Transform</div>
+            <label class="fl" style="font-size:.65rem">Matrix (a,b;c,d)</label>
+            <input class="si" id="matTfVal" value="1,0;0,1" oninput="scheduleMatTf()"/>
+            <label class="fl" style="font-size:.65rem;margin-top:4px">Preset</label>
+            <select class="ss" id="matTfPreset" onchange="applyMatPreset()">
+              <option value="identity">Identity</option>
+              <option value="scale2">Scale ×2</option>
+              <option value="rot45">Rotate 45°</option>
+              <option value="rot90">Rotate 90°</option>
+              <option value="shearx">Shear X</option>
+              <option value="sheary">Shear Y</option>
+              <option value="reflx">Reflect X-axis</option>
+              <option value="refly">Reflect Y-axis</option>
+            </select>
+            <button class="sb" style="margin-top:6px" onclick="scheduleMatTf()">Render</button>
+            <p style="font-size:.7rem;color:var(--muted);margin-top:6px;line-height:1.5">Grey = original grid, Blue/Red = transformed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Canvas -->
+    <div class="graph-wrap" id="graphWrap">
+      <canvas id="gc"></canvas>
+      <div class="graph-toolbar">
+        <button class="gtb" onclick="gZoom(1.3)">+</button>
+        <button class="gtb" onclick="gZoom(0.77)">&#8722;</button>
+        <button class="gtb" onclick="smoothReset()">&#8962;</button>
+      </div>
+      <div class="coord-tip" id="coordTip"></div>
+      <div class="pt-tip" id="ptTip"></div>
+    </div>
+  </div>
+
+  <!-- Scientific calculator -->
+  <div class="sci-wrap">
+    <div class="sci-left">
+      <div class="mode-row">
+        <button class="mpill active" data-m="basic">Basic</button>
+        <button class="mpill" data-m="calculus">Calculus</button>
+        <button class="mpill" data-m="matrix">Matrix</button>
+        <button class="mpill" data-m="vector">Vector</button>
+        <button class="mpill" data-m="custom">+Fn</button>
+      </div>
+      <div id="sharedArea">
+        <div class="sci-expr-area">
+          <textarea class="sci-ta" id="sciIn" rows="2" placeholder="Type an expression… (multi-line: x=5 then x^3)"></textarea>
+        </div>
+        <div class="sci-preview" id="sciPrev"></div>
+      </div>
+      <div class="op-bar" id="opBar">
+        <span class="ob cat">Arith</span>
+        <button class="ob" onclick="ins('sqrt(')">√</button>
+        <button class="ob" onclick="ins('^2')">x²</button>
+        <button class="ob" onclick="ins('^')">xⁿ</button>
+        <button class="ob" onclick="ins('abs(')">|x|</button>
+        <button class="ob" onclick="ins('(')">(</button>
+        <button class="ob" onclick="ins(')')">)</button>
+        <button class="ob" onclick="ins('Inf')">∞</button>
+        <span class="ob cat">Trigonometric</span>
+        <button class="ob" onclick="ins('sin(')">sin</button>
+        <button class="ob" onclick="ins('cos(')">cos</button>
+        <button class="ob" onclick="ins('tan(')">tan</button>
+        <button class="ob" onclick="ins('csc(')">csc</button>
+        <button class="ob" onclick="ins('sec(')">sec</button>
+        <button class="ob" onclick="ins('cot(')">cot</button>
+        <button class="ob" onclick="ins('asin(')">arcsin</button>
+        <button class="ob" onclick="ins('acos(')">arccos</button>
+        <button class="ob" onclick="ins('atan(')">arctan</button>
+        <button class="ob" onclick="ins('acot(')">arccot</button>
+        <button class="ob" onclick="ins('asec(')">arcsec</button>
+        <button class="ob" onclick="ins('acsc(')">arccsc</button>
+        <button class="ob" onclick="ins('atan2(')">atan2</button>
+        <button class="ob" onclick="ins('versin(')">versin</button>
+        <button class="ob" onclick="ins('hav(')">hav</button>
+        <span class="ob cat">Hyperbolic</span>
+        <button class="ob" onclick="ins('sinh(')">sinh</button>
+        <button class="ob" onclick="ins('cosh(')">cosh</button>
+        <button class="ob" onclick="ins('tanh(')">tanh</button>
+        <button class="ob" onclick="ins('sech(')">sech</button>
+        <button class="ob" onclick="ins('csch(')">csch</button>
+        <button class="ob" onclick="ins('coth(')">coth</button>
+        <button class="ob" onclick="ins('asinh(')">arsinh</button>
+        <button class="ob" onclick="ins('acosh(')">arcosh</button>
+        <button class="ob" onclick="ins('atanh(')">artanh</button>
+        <button class="ob" onclick="ins('asech(')">arsech</button>
+        <button class="ob" onclick="ins('acsch(')">arcsch</button>
+        <button class="ob" onclick="ins('acoth(')">arcoth</button>
+        <span class="ob cat">Log/Exp</span>
+        <button class="ob" onclick="ins('ln(')">ln</button>
+        <button class="ob" onclick="ins('log10(')">log₁₀</button>
+        <button class="ob" onclick="ins('log2(')">log₂</button>
+        <button class="ob" onclick="ins('exp(')">eˣ</button>
+        <span class="ob cat">Special Functions</span>
+        <button class="ob" onclick="ins('gamma(')">Γ(x)</button>
+        <button class="ob" onclick="ins('n!(')">n!</button>
+        <button class="ob" onclick="ins('beta(')">B(a,b)</button>
+        <button class="ob" onclick="ins('zeta(')">ζ(s)</button>
+        <button class="ob" onclick="ins('erf(')">erf</button>
+        <button class="ob" onclick="ins('W(')">W(x)</button>
+        <button class="ob" onclick="ins('sinc(')">Nsinc</button>
+        <button class="ob" onclick="ins('sincu(')">sinc</button>
+        <button class="ob" onclick="ins('cis(')">cis</button>
+        <button class="ob" onclick="ins('floor(')">⌊x⌋</button>
+        <button class="ob" onclick="ins('ceil(')">⌈x⌉</button>
+        <button class="ob" onclick="ins('round(')">round</button>
+        <button class="ob" onclick="ins('sign(')">sgn</button>
+        <button class="ob" onclick="ins('mod(')">mod</button>
+        <button class="ob" onclick="ins('gcd(')">gcd</button>
+        <button class="ob" onclick="ins('lcm(')">lcm</button>
+        <button class="ob" onclick="ins('digamma(')">ψ(x)</button>
+        <button class="ob" onclick="ins('Si(')">Si</button>
+        <button class="ob" onclick="ins('Ci(')">Ci</button>
+        <span class="ob cat">Constants</span>
+        <button class="ob" onclick="ins('pi')">π</button>
+        <button class="ob" onclick="ins('e')">e</button>
+        <button class="ob" onclick="ins('phi')">φ</button>
+        <button class="ob" onclick="ins('gamma_em')">γ</button>
+      </div>
+      <!-- BASIC -->
+      <div class="mpanel active" id="mp-basic">
+        <div class="syntax-hint">Multi-line: each line evaluated in order. Define variables with <code>x = 5</code> then use <code>x^3</code> on the next line. Press <code>Ctrl+Enter</code> to calculate.</div>
+        <button class="cbtn" onclick="doCalc()">Calculate</button>
+      </div>
+      <!-- CALCULUS -->
+      <div class="mpanel" id="mp-calculus">
+        <div class="fg"><label class="fl">Operation</label>
+          <select class="fsel" id="calcMode" onchange="updateCalcUI()">
+            <option value="deriv">Derivative — syntax: d/dx f(x)</option>
+            <option value="partial">Partial — syntax: ∂/∂x f(x,y)</option>
+            <option value="nderiv">nth Derivative — syntax: dⁿ/dxⁿ f(x)</option>
+            <option value="mixed">Mixed Partial — syntax: ∂²f/∂x∂y</option>
+            <option value="integral">Definite Integral — syntax: ∫ₐᵇ f dx</option>
+            <option value="improper">Improper Integral — ∫₋∞^∞ f dx</option>
+            <option value="limit">Limit — syntax: lim[x→a] f(x)</option>
+            <option value="sum">Summation — syntax: Σ[n=a..b] f(n)</option>
+            <option value="product">Product — syntax: Π[n=a..b] f(n)</option>
+          </select>
+        </div>
+        <div class="syntax-hint" id="calcSyntaxHint">Enter expression in the input above.</div>
+        <div class="fg"><label class="fl">Variable</label><input class="fi" id="calcVar" value="x" style="max-width:70px"/></div>
+        <div id="ui-nderiv" style="display:none" class="fg"><label class="fl">Order n</label><input class="fi" id="calcN" value="2" style="max-width:60px"/></div>
+        <div id="ui-mixed" style="display:none" class="fg"><label class="fl">Variables (e.g. x,y)</label><input class="fi" id="calcMixedVars" value="x,y"/></div>
+        <div id="ui-bounds" style="display:none"><div class="frow"><div class="fg"><label class="fl">Lower a</label><input class="fi" id="calcA" value="0"/></div><div class="fg"><label class="fl">Upper b</label><input class="fi" id="calcB" value="1"/></div></div></div>
+        <div id="ui-limit" class="fg"><label class="fl">x →</label><input class="fi" id="calcLim" value="0" style="max-width:90px"/></div>
+        <div id="ui-sum" style="display:none"><div class="frow"><div class="fg"><label class="fl">From</label><input class="fi" id="sumFrom" value="1"/></div><div class="fg"><label class="fl">To</label><input class="fi" id="sumTo" value="10"/></div></div></div>
+        <div id="ui-product" style="display:none"><div class="frow"><div class="fg"><label class="fl">From</label><input class="fi" id="prodFrom" value="1"/></div><div class="fg"><label class="fl">To</label><input class="fi" id="prodTo" value="5"/></div></div></div>
+        <button class="cbtn" onclick="doCalculus()">Compute</button>
+      </div>
+      <!-- MATRIX -->
+      <div class="mpanel" id="mp-matrix">
+        <div class="fg"><label class="fl">Operation</label>
+          <select class="fsel" id="matOp" onchange="updateMatUI()">
+            <option value="det">Determinant</option>
+            <option value="inv">Inverse</option>
+            <option value="trans">Transpose</option>
+            <option value="mul">A × B</option>
+            <option value="eig">Eigenvalues &amp; Eigenvectors</option>
+            <option value="rank">Rank</option>
+            <option value="trace">Trace</option>
+            <option value="norm">Frobenius Norm</option>
+            <option value="rref">Row Echelon (RREF)</option>
+            <option value="lu">LU Decomposition</option>
+            <option value="pow">Matrix Power Aⁿ</option>
+            <option value="adj">Adjugate</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Matrix A (rows ; | cols ,)  e.g. 1,2;3,4</label><input class="fi" id="matA" value="1,2;3,4"/></div>
+        <div class="fg" id="matBG" style="display:none"><label class="fl">Matrix B</label><input class="fi" id="matB" value="5,6;7,8"/></div>
+        <div class="fg" id="matPowG" style="display:none"><label class="fl">Power n</label><input class="fi" id="matPow" value="2" style="max-width:60px"/></div>
+        <button class="cbtn" onclick="doMatrix()">Compute</button>
+      </div>
+      <!-- VECTOR -->
+      <div class="mpanel" id="mp-vector">
+        <div class="fg"><label class="fl">Operation</label>
+          <select class="fsel" id="vecOp" onchange="updateVecUI()">
+            <optgroup label="Field Operations">
+              <option value="grad">Gradient ∇f</option>
+              <option value="div">Divergence ∇·F</option>
+              <option value="curl">Curl ∇×F</option>
+              <option value="lap">Laplacian ∇²f</option>
+              <option value="hess">Hessian H(f)</option>
+              <option value="jac">Jacobian J(F)</option>
+              <option value="dirderiv">Directional Derivative ∇_u f</option>
+            </optgroup>
+            <optgroup label="Vector Algebra">
+              <option value="dot">Dot Product u·v</option>
+              <option value="cross">Cross Product u×v</option>
+              <option value="mag">Magnitude |v|</option>
+              <option value="unit">Unit Vector v̂</option>
+              <option value="proj">Projection proj_v u</option>
+              <option value="angle">Angle Between u,v</option>
+              <option value="add">Vector Addition u+v</option>
+              <option value="scale">Scalar Multiple cv</option>
+              <option value="triple">Triple Product u·(v×w)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div id="vec-scalar" class="fg"><label class="fl">Scalar field f(x,y,z)</label><input class="fi" id="vScalar" value="x^2+y^2+z^2"/></div>
+        <div id="vec-field" style="display:none">
+          <div class="fg"><label class="fl">P(x,y,z) — î</label><input class="fi" id="vP" value="x^2*y"/></div>
+          <div class="fg"><label class="fl">Q(x,y,z) — ĵ</label><input class="fi" id="vQ" value="y^2*z"/></div>
+          <div class="fg"><label class="fl">R(x,y,z) — k̂</label><input class="fi" id="vR" value="z^2*x"/></div>
+        </div>
+        <div id="vec-uv" style="display:none">
+          <div class="fg"><label class="fl">Vector u (comma-separated)</label><input class="fi" id="vU" value="1,2,3"/></div>
+          <div class="fg"><label class="fl">Vector v</label><input class="fi" id="vV" value="4,5,6"/></div>
+        </div>
+        <div id="vec-w" style="display:none"><div class="fg"><label class="fl">Vector w</label><input class="fi" id="vW" value="7,8,9"/></div></div>
+        <div id="vec-cv" style="display:none">
+          <div class="fg"><label class="fl">Scalar c</label><input class="fi" id="vC" value="3" style="max-width:70px"/></div>
+          <div class="fg"><label class="fl">Vector v</label><input class="fi" id="vSV" value="1,2,3"/></div>
+        </div>
+        <div id="vec-dir" style="display:none">
+          <div class="fg"><label class="fl">Direction u</label><input class="fi" id="vDirU" value="1,1,0"/></div>
+          <div class="fg"><label class="fl">Point (x₀,y₀,z₀)</label><input class="fi" id="vDirPt" value="1,1,0"/></div>
+        </div>
+        <button class="cbtn" onclick="doVector()">Compute</button>
+      </div>
+      <!-- CUSTOM FN -->
+      <div class="mpanel" id="mp-custom">
+        <div class="syntax-hint">Define functions usable in both the scientific and graphing calculators.</div>
+        <div id="customFnList"></div>
+        <div class="add-fn-box">
+          <label class="fl" style="color:var(--accent)">Add Custom Function</label>
+          <input class="fi" id="cfName" placeholder="Name e.g. myf" style="margin-bottom:5px"/>
+          <input class="fi" id="cfParams" placeholder="Parameters e.g. x,y" style="margin-bottom:5px"/>
+          <input class="fi" id="cfBody" placeholder="Body e.g. sin(x)+y^2" style="margin-bottom:5px"/>
+          <button class="cbtn" onclick="addCustomFn()">Add Function</button>
+        </div>
+      </div>
+    </div>
+    <!-- Output -->
+    <div class="sci-right">
+      <div class="sci-out-hdr">Output</div>
+      <div class="sci-out-body">
+        <div><div class="rl">Symbolic / Exact</div><div class="rv sym" id="outSym">Awaiting input…</div></div>
+        <div><div class="rl">Numeric Approximation</div><div class="rv num" id="outNum">Awaiting input…</div></div>
+        <div><div class="rl">Solution Steps</div><div class="rv steps" id="outSteps">—</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JSON PAGES -->
+<section class="page" id="databasePage">
+
+    <button class="back-btn" onclick="openPage('home')">
+        ← Home
+    </button>
+
+    <h1 id="pageTitle"></h1>
+
+    <p id="pageDescription"></p>
+
+    <div class="grid" id="pageGrid"></div>
+
+    <div id="pageDetail" style="display:none;">
+
+        <button class="back-btn"
+                onclick="closeDetail()">
+
+            ← Back
+
+        </button>
+
+        <div class="card"
+             id="pageDetailContent">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONCEPT PAGE -->
+<section class="page" id="concept-page">
+  <button class="back-btn" id="conceptBack" onclick="openPage('home')">&#8592; Back</button>
+  <div class="card" id="conceptContent"><h2>Select a concept</h2></div>
+</section>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

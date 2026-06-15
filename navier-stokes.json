@@ -1,0 +1,6 @@
+{
+  "title": "Navier–Stokes Existence & Smoothness",
+  "subtitle": "Unsolved problem",
+  "summary": "Do smooth solutions to the 3D Navier–Stokes equations always exist? Clay Millennium Prize.",
+  "detail": "<div class='formula-box'>\\[\\frac{\\partial u}{\\partial t}+(u\\cdot\\nabla)u=-\\nabla p+\\nu\\nabla^2 u+f\\]</div><p style='margin-top:12px;line-height:1.9'>In 3D, whether smooth initial conditions always produce a smooth global solution is unknown. Blow-up may occur. The 2D case is solved.</p>"
+}

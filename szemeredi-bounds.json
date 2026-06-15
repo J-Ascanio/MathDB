@@ -1,0 +1,6 @@
+{
+  "title": "Szemerédi's Theorem Bounds",
+  "subtitle": "Unsolved problem",
+  "summary": "The exact quantitative bounds in Szemerédi's theorem on arithmetic progressions remain open.",
+  "detail": "<p style='line-height:1.9'>Szemerédi (1975): any subset of integers with positive upper density contains arithmetic progressions of every length. The quantitative bounds are far from optimal and remain an active area of research.</p>"
+}

@@ -1,10 +1,14 @@
 {
-  "title": "Mathematicians",
-  "description": "Profiles of mathematicians who shaped the field from antiquity to today.",
+  "title": "Topics",
+  "description": "Major branches of mathematics — click any to read an overview.",
   "cards": [
-    "euclid", "archimedes", "gauss", "euler", "riemann",
-    "newton", "leibniz", "poincare", "hilbert", "noether",
-    "ramanujan", "godel", "turing", "grothendieck",
-    "tao", "wiles", "mirzakhani", "von-neumann"
+    "real-analysis", "complex-analysis", "abstract-algebra", "linear-algebra",
+    "topology", "differential-geometry", "number-theory", "probability-theory",
+    "statistics", "functional-analysis", "pdes", "odes",
+    "combinatorics", "set-theory", "mathematical-logic", "category-theory",
+    "algebraic-topology", "harmonic-analysis", "dynamical-systems",
+    "numerical-analysis", "mathematical-physics", "algebraic-geometry",
+    "measure-theory", "graph-theory", "information-theory",
+    "game-theory", "cryptography", "calculus", "vector-calculus"
   ]
 }

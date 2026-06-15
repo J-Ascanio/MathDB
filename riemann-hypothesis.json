@@ -1,0 +1,6 @@
+{
+  "title": "Riemann Hypothesis",
+  "subtitle": "Unsolved problem",
+  "summary": "All non-trivial zeros of ζ(s) lie on Re(s)=½. Clay Millennium Prize Problem.",
+  "detail": "<p style='line-height:1.9;margin-bottom:14px'>Proposed by Riemann (1859). Over 10 trillion non-trivial zeros verified — all on Re(s)=½. No proof exists.</p><div class='formula-box'>\\[\\zeta(s)=\\sum_{n=1}^\\infty\\frac{1}{n^s},\\quad\\text{all non-trivial zeros satisfy }\\operatorname{Re}(s)=\\tfrac{1}{2}\\]</div><p style='margin-top:12px;line-height:1.9'>A proof would imply optimal error bounds in the prime number theorem.</p>"
+}

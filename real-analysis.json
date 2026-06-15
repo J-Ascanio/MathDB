@@ -1,0 +1,6 @@
+{
+  "title": "Real Analysis",
+  "subtitle": "Rigorous foundations of calculus",
+  "summary": "Limits, continuity, differentiation, integration, sequences and series, metric spaces.",
+  "detail": "<p style='line-height:1.9'>The rigorous foundation underlying calculus. Core objects include limits, continuous functions, derivatives (defined as limits of difference quotients), and the Riemann/Lebesgue integral. The completeness of \\(\\mathbb{R}\\) — the least upper bound property — underlies every major theorem: the intermediate value theorem, extreme value theorem, and the mean value theorem.</p><p style='margin-top:12px;line-height:1.9'>Key results: the Bolzano–Weierstrass theorem (bounded sequences have convergent subsequences), uniform continuity on compact sets, and the Heine–Cantor theorem. Extends naturally to metric spaces and normed spaces, which are studied in functional analysis.</p>"
+}
