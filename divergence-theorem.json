@@ -1,0 +1,6 @@
+{
+  "title": "Divergence Theorem",
+  "subtitle": "Vector Calculus · Gauss's theorem",
+  "summary": "Total outward flux through a closed surface equals the volume integral of divergence.",
+  "detail": "<div class='formula-box'>\\[ \\oiint_S F\\cdot dS = \\iiint_V (\\nabla\\cdot F)\\,dV \\]</div><p style='margin-top:14px;line-height:1.9'>Also called Gauss's theorem. The outward flux of a vector field through any closed surface equals the integral of its divergence over the enclosed volume. Used in electrostatics (Gauss's law) and fluid mechanics.</p>"
+}

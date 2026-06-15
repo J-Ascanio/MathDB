@@ -1,0 +1,6 @@
+{
+  "title": "Cosine",
+  "subtitle": "Trigonometric · Periodic",
+  "summary": "Ratio of adjacent to hypotenuse. Even function.",
+  "detail": "<div class='formula-box'>\\[ \\cos x = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\sum_{n=0}^{\\infty}\\frac{(-1)^n x^{2n}}{(2n)!} \\]</div><p style='margin-top:14px;line-height:1.9'>Even function: \\(\\cos(-x)=\\cos x\\). \\(\\cos x=\\sin(x+\\pi/2)\\). Zeros at \\(x=(2n+1)\\pi/2\\). The exponential form: \\(\\cos x = \\operatorname{Re}(e^{ix})\\).</p>"
+}

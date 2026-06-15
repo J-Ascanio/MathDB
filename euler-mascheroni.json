@@ -1,0 +1,6 @@
+{
+  "title": "Euler–Mascheroni Constant (γ)",
+  "subtitle": "Constant · Analysis",
+  "summary": "Limit of the difference between the harmonic series and ln n. Unknown if irrational.",
+  "detail": "<div class='formula-box'>\\[ \\gamma = \\lim_{n\\to\\infty}\\left(\\sum_{k=1}^n \\frac{1}{k} - \\ln n\\right) = 0.57721566490153\\ldots \\]</div><p style='margin-top:14px;line-height:1.9'>Whether \\(\\gamma\\) is rational or irrational is unknown — one of the most famous open questions in mathematics. Appears in the digamma function \\(\\psi(1)=-\\gamma\\), the Riemann zeta function, integrals like \\(\\int_0^\\infty e^{-t}\\ln t\\,dt=-\\gamma\\), and the asymptotic expansion of the harmonic numbers.</p>"
+}

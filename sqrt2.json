@@ -1,0 +1,6 @@
+{
+  "title": "√2 — Pythagoras' Constant",
+  "subtitle": "Algebraic irrational · Geometry",
+  "summary": "Diagonal of the unit square. First proved irrational.",
+  "detail": "<div class='formula-box'>\\[ \\sqrt{2} \\approx 1.41421356237309\\ldots \\]</div><p style='margin-top:14px;line-height:1.9'>The irrationality of \\(\\sqrt{2}\\) was proved by the Pythagoreans (a landmark in mathematics history) by showing that any ratio \\(p/q\\) in lowest terms would require both \\(p\\) and \\(q\\) to be even — a contradiction. The best rational approximations come from the convergents of its continued fraction \\([1;2,2,2,\\ldots]\\): \\(1, 3/2, 7/5, 17/12, 41/29,\\ldots\\)</p>"
+}

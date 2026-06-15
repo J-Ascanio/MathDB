@@ -1,0 +1,6 @@
+{
+  "title": "Sine",
+  "subtitle": "Trigonometric · Periodic",
+  "summary": "Ratio of opposite to hypotenuse. Period 2π.",
+  "detail": "<div class='formula-box'>\\[ \\sin x = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\sum_{n=0}^{\\infty}\\frac{(-1)^n x^{2n+1}}{(2n+1)!} \\]</div><p style='margin-top:14px;line-height:1.9'>Odd function: \\(\\sin(-x)=-\\sin x\\). Period \\(2\\pi\\). Range \\([-1,1]\\). Key identity: \\(\\sin^2 x+\\cos^2 x=1\\). Taylor series converges for all \\(x\\).</p>"
+}

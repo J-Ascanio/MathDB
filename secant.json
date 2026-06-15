@@ -1,0 +1,6 @@
+{
+  "title": "Secant",
+  "subtitle": "Trigonometric · Reciprocal",
+  "summary": "Reciprocal of cosine.",
+  "detail": "<div class='formula-box'>\\[ \\sec x = \\frac{1}{\\cos x} \\]</div><p style='margin-top:14px;line-height:1.9'>Poles at \\((2n+1)\\pi/2\\). Range \\((-\\infty,-1]\\cup[1,\\infty)\\). Even function. Pythagorean identity: \\(\\sec^2 x=1+\\tan^2 x\\).</p>"
+}

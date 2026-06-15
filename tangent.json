@@ -1,0 +1,6 @@
+{
+  "title": "Tangent",
+  "subtitle": "Trigonometric · Ratio",
+  "summary": "Ratio of sine to cosine. Poles at odd multiples of π/2.",
+  "detail": "<div class='formula-box'>\\[ \\tan x = \\frac{\\sin x}{\\cos x} \\]</div><p style='margin-top:14px;line-height:1.9'>Period \\(\\pi\\). Poles at \\(x=\\pi/2+n\\pi\\) where \\(\\cos x=0\\). Range \\((-\\infty,\\infty)\\). Implemented with a safe fallback returning \\(\\pm\\infty\\) (not NaN) at poles.</p>"
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Arccosine",
+  "subtitle": "Trigonometric · Inverse",
+  "summary": "Inverse cosine. Range [0, π], domain [−1, 1].",
+  "detail": "<div class='formula-box'>\\[ \\arccos x = \\frac{\\pi}{2} - \\arcsin x \\]</div><p style='margin-top:14px;line-height:1.9'>Derivative: \\(-1/\\sqrt{1-x^2}\\). Used to find angles in triangles given side lengths. Returns NaN for \\(|x|>1\\).</p>"
+}

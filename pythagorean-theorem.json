@@ -1,0 +1,6 @@
+{
+  "title": "Pythagorean Theorem",
+  "subtitle": "Geometry · Right triangles",
+  "summary": "In a right triangle, the square of the hypotenuse equals the sum of squares of the two legs.",
+  "detail": "<div class='formula-box'>\\[ a^2 + b^2 = c^2 \\]</div><p style='margin-top:14px;line-height:1.9'>In a right triangle with legs \\(a, b\\) and hypotenuse \\(c\\). Generalises to the law of cosines for arbitrary triangles. The converse also holds: if \\(a^2+b^2=c^2\\) then the triangle is right-angled.</p>"
+}

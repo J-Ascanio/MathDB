@@ -1,0 +1,6 @@
+{
+  "title": "Stokes' Theorem",
+  "subtitle": "Vector Calculus · Surface integrals",
+  "summary": "The surface integral of curl equals the line integral around the boundary.",
+  "detail": "<div class='formula-box'>\\[ \\iint_S (\\nabla\\times F)\\cdot dS = \\oint_{\\partial S} F\\cdot dr \\]</div><p style='margin-top:14px;line-height:1.9'>Generalises Green's theorem to surfaces in 3D. A special case of the generalised Stokes theorem \\(\\int_M d\\omega=\\int_{\\partial M}\\omega\\), which unifies the fundamental theorem of calculus, Green's theorem, and the divergence theorem.</p>"
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Normalized Sinc",
+  "subtitle": "Special Functions · Signal processing",
+  "summary": "The cardinal sine function, central to the sampling theorem.",
+  "detail": "<div class='formula-box'>\\[ \\operatorname{sinc}(x) = \\frac{\\sin(\\pi x)}{\\pi x},\\quad \\operatorname{sinc}(0)=1 \\]</div><p style='margin-top:14px;line-height:1.9'>Zeros at all non-zero integers. Its Fourier transform is the rectangular function. Appears in the Nyquist–Shannon sampling theorem: a band-limited signal can be exactly reconstructed from samples at twice the highest frequency.</p>"
+}

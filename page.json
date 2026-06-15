@@ -1,0 +1,10 @@
+{
+  "title": "Mathematicians",
+  "description": "Profiles of mathematicians who shaped the field from antiquity to today.",
+  "cards": [
+    "euclid", "archimedes", "gauss", "euler", "riemann",
+    "newton", "leibniz", "poincare", "hilbert", "noether",
+    "ramanujan", "godel", "turing", "grothendieck",
+    "tao", "wiles", "mirzakhani", "von-neumann"
+  ]
+}

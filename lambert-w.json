@@ -1,0 +1,6 @@
+{
+  "title": "Lambert W Function",
+  "subtitle": "Special Functions · Inverse of xe^x",
+  "summary": "The inverse of f(x) = xe^x.",
+  "detail": "<div class='formula-box'>\\[ W(x)\\,e^{W(x)} = x \\]</div><p style='margin-top:14px;line-height:1.9'>Principal branch \\(W_0\\ge -1\\) defined for \\(x\\ge -1/e\\). Used to solve equations like \\(xe^x=c\\), delay differential equations, and in combinatorics (tree-counting). \\(W(e)=1\\); \\(W(-1/e)=-1\\).</p>"
+}

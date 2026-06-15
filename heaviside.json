@@ -1,0 +1,6 @@
+{
+  "title": "Heaviside Step Function",
+  "subtitle": "Special Functions · Unit step",
+  "summary": "Unit step function. Distributional derivative is the Dirac delta.",
+  "detail": "<div class='formula-box'>\\[ H(x) = \\begin{cases}0 & x<0\\\\1 & x\\ge 0\\end{cases} \\]</div><p style='margin-top:14px;line-height:1.9'>Used to represent switched-on signals. \\(H'(x)=\\delta(x)\\) in the distributional sense. The Laplace transform of \\(H(t)\\) is \\(1/s\\). Often used to write piecewise functions compactly: \\(f(x)H(x-a)\\) equals \\(f(x)\\) for \\(x\\ge a\\) and 0 otherwise.</p>"
+}

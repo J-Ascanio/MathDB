@@ -1,0 +1,6 @@
+{
+  "title": "Golden Ratio (φ)",
+  "subtitle": "Algebraic constant · Geometry",
+  "summary": "The unique positive solution to x² = x + 1.",
+  "detail": "<div class='formula-box'>\\[ \\varphi = \\frac{1+\\sqrt{5}}{2} = 1.61803398874989\\ldots \\]</div><p style='margin-top:14px;line-height:1.9'>Satisfies \\(\\varphi^2=\\varphi+1\\) and \\(1/\\varphi=\\varphi-1\\). Appears in Fibonacci numbers (\\(F_n/F_{n-1}\\to\\varphi\\)), the regular pentagon, phyllotaxis in plants, and the Penrose tiling. Its continued fraction \\([1;1,1,1,\\ldots]\\) converges most slowly of all irrationals.</p>"
+}

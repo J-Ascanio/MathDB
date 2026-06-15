@@ -1,0 +1,6 @@
+{
+  "title": "Euler's Product Formula",
+  "subtitle": "Number Theory · Zeta function",
+  "summary": "The Riemann zeta function equals a product over all primes.",
+  "detail": "<div class='formula-box'>\\[ \\zeta(s) = \\sum_{n=1}^{\\infty}\\frac{1}{n^s} = \\prod_{p\\text{ prime}}\\frac{1}{1-p^{-s}} \\]</div><p style='margin-top:14px;line-height:1.9'>Each factor \\((1-p^{-s})^{-1}=1+p^{-s}+p^{-2s}+\\cdots\\) corresponds to one prime. The product arises from unique prime factorisation. The formula connects analytic properties of \\(\\zeta(s)\\) directly to the distribution of primes.</p>"
+}

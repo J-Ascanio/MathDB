@@ -1,0 +1,6 @@
+{
+  "title": "Pi (π)",
+  "subtitle": "Transcendental constant · Geometry",
+  "summary": "Ratio of circumference to diameter of any circle.",
+  "detail": "<div class='formula-box'>\\[ \\pi = 3.14159265358979\\ldots \\]</div><p style='margin-top:14px;line-height:1.9'>Transcendental (Lindemann, 1882), hence not constructible. Appears in the area of a circle (\\(A=\\pi r^2\\)), the volume of a sphere (\\(V=\\frac{4}{3}\\pi r^3\\)), the Gaussian integral (\\(\\int e^{-x^2}dx=\\sqrt{\\pi}\\)), and the Basel problem (\\(\\sum 1/n^2=\\pi^2/6\\)). Known to over 100 trillion decimal digits.</p>"
+}

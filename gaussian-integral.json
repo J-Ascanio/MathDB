@@ -1,0 +1,6 @@
+{
+  "title": "Gaussian Integral",
+  "subtitle": "Analysis · Probability",
+  "summary": "The integral of e^(−x²) over all reals equals √π.",
+  "detail": "<div class='formula-box'>\\[ \\int_{-\\infty}^{\\infty} e^{-x^2}\\,dx = \\sqrt{\\pi} \\]</div><p style='margin-top:14px;line-height:1.9'>Proved by squaring and converting to polar coordinates: \\(\\left(\\int e^{-x^2}dx\\right)^2=\\iint e^{-(x^2+y^2)}dA=\\int_0^{2\\pi}\\int_0^\\infty e^{-r^2}r\\,dr\\,d\\theta=\\pi\\). The normal distribution PDF integrates to 1 via the generalisation \\(\\int e^{-x^2/(2\\sigma^2)}dx=\\sigma\\sqrt{2\\pi}\\).</p>"
+}

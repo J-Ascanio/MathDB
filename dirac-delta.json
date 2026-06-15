@@ -1,0 +1,6 @@
+{
+  "title": "Dirac Delta",
+  "subtitle": "Special Functions · Distribution",
+  "summary": "Generalised function defined by its action under integration.",
+  "detail": "<div class='formula-box'>\\[ \\int_{-\\infty}^{\\infty} f(x)\\,\\delta(x-a)\\,dx = f(a) \\]</div><p style='margin-top:14px;line-height:1.9'>Not a true function — a Schwartz distribution. The sifting property extracts the value of \\(f\\) at \\(a\\). \\(\\delta(x)=H'(x)\\). The Fourier transform is \\(\\hat{\\delta}=1\\) (flat spectrum). Models point masses, point charges, and instantaneous impulses.</p>"
+}

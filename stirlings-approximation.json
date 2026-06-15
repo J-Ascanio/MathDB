@@ -1,0 +1,6 @@
+{
+  "title": "Stirling's Approximation",
+  "subtitle": "Number Theory · Asymptotics",
+  "summary": "Asymptotic formula for large factorials.",
+  "detail": "<div class='formula-box'>\\[ n! \\approx \\sqrt{2\\pi n}\\left(\\frac{n}{e}\\right)^n \\]</div><p style='margin-top:14px;line-height:1.9'>The relative error is \\(O(1/n)\\) — for \\(n=10\\) the approximation is accurate to within 1%. The more precise form is \\(n!=\\sqrt{2\\pi n}(n/e)^n e^{\\theta/(12n)}\\) for some \\(\\theta\\in(0,1)\\). Essential in statistical mechanics (entropy of systems) and combinatorics (asymptotics of binomial coefficients).</p>"
+}

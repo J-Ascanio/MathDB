@@ -1,0 +1,6 @@
+{
+  "title": "Cotangent",
+  "subtitle": "Trigonometric · Reciprocal",
+  "summary": "Reciprocal of tangent.",
+  "detail": "<div class='formula-box'>\\[ \\cot x = \\frac{\\cos x}{\\sin x} \\]</div><p style='margin-top:14px;line-height:1.9'>Poles at \\(n\\pi\\). Period \\(\\pi\\). \\(\\cot x = \\tan(\\pi/2 - x)\\). The Pythagorean identity: \\(\\csc^2 x = 1+\\cot^2 x\\).</p>"
+}

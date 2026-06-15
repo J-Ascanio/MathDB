@@ -1,0 +1,6 @@
+{
+  "title": "Law of Cosines",
+  "subtitle": "Geometry · Trigonometry",
+  "summary": "Generalises the Pythagorean theorem to arbitrary triangles.",
+  "detail": "<div class='formula-box'>\\[ c^2 = a^2 + b^2 - 2ab\\cos C \\]</div><p style='margin-top:14px;line-height:1.9'>At \\(C=90°\\), \\(\\cos C=0\\) and we recover \\(a^2+b^2=c^2\\). Used to find the third side when two sides and the included angle are known (SAS), or to find an angle when all three sides are known (SSS). The law of sines \\(a/\\sin A = b/\\sin B = c/\\sin C\\) handles the remaining cases.</p>"
+}

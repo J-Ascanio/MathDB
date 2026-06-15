@@ -1,0 +1,6 @@
+{
+  "title": "Euler's Number (e)",
+  "subtitle": "Transcendental constant · Analysis",
+  "summary": "Base of the natural logarithm. The unique number where d/dx eˣ = eˣ.",
+  "detail": "<div class='formula-box'>\\[ e = \\lim_{n\\to\\infty}\\left(1+\\frac{1}{n}\\right)^n = \\sum_{n=0}^{\\infty}\\frac{1}{n!} = 2.71828\\ldots \\]</div><p style='margin-top:14px;line-height:1.9'>Transcendental (Hermite, 1873). The exponential function \\(e^x\\) is its own derivative. The natural logarithm \\(\\ln x\\) is its inverse. Appears in compound interest, normal distributions, Fourier analysis, and complex analysis via Euler's formula \\(e^{i\\theta}=\\cos\\theta+i\\sin\\theta\\).</p>"
+}

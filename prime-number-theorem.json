@@ -1,0 +1,6 @@
+{
+  "title": "Prime Number Theorem",
+  "subtitle": "Number Theory · Distribution of primes",
+  "summary": "The count of primes up to x grows asymptotically as x/ln x.",
+  "detail": "<div class='formula-box'>\\[ \\pi(x) \\sim \\frac{x}{\\ln x} \\]</div><p style='margin-top:14px;line-height:1.9'>Proved independently by Hadamard and de la Vallée-Poussin (1896) using properties of the Riemann zeta function. A sharper form is \\(\\pi(x)\\sim\\operatorname{Li}(x)=\\int_2^x dt/\\ln t\\). The Riemann Hypothesis would give the best possible error bound.</p>"
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Riemann Zeta Function",
+  "subtitle": "Special Functions · Analytic number theory",
+  "summary": "Fundamental in analytic number theory. Its non-trivial zeros are the subject of the Riemann Hypothesis.",
+  "detail": "<div class='formula-box'>\\[ \\zeta(s) = \\sum_{n=1}^{\\infty}\\frac{1}{n^s} = \\prod_p \\frac{1}{1-p^{-s}} \\]</div><p style='margin-top:14px;line-height:1.9'>Analytically continued to \\(\\mathbb{C}\\setminus\\{1\\}\\). Special values: \\(\\zeta(2)=\\pi^2/6\\), \\(\\zeta(4)=\\pi^4/90\\). The Riemann Hypothesis asserts all non-trivial zeros lie on \\(\\operatorname{Re}(s)=1/2\\). The functional equation relates \\(\\zeta(s)\\) to \\(\\zeta(1-s)\\).</p>"
+}

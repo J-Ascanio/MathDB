@@ -1,0 +1,6 @@
+{
+  "title": "Quadratic Formula",
+  "subtitle": "Algebra · Roots of polynomials",
+  "summary": "Solves ax²+bx+c=0 for any real or complex coefficients.",
+  "detail": "<div class='formula-box'>\\[ x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} \\]</div><p style='margin-top:14px;line-height:1.9'>Solves \\(ax^2+bx+c=0\\). The <strong>discriminant</strong> \\(\\Delta=b^2-4ac\\): positive \\(\\Rightarrow\\) two real roots, zero \\(\\Rightarrow\\) one repeated root, negative \\(\\Rightarrow\\) two complex conjugate roots.</p>"
+}

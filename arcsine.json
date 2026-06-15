@@ -1,0 +1,6 @@
+{
+  "title": "Arcsine",
+  "subtitle": "Trigonometric · Inverse",
+  "summary": "Inverse sine. Range [−π/2, π/2], domain [−1, 1].",
+  "detail": "<div class='formula-box'>\\[ \\arcsin x,\\quad x\\in[-1,1],\\quad\\text{range }\\left[-\\tfrac{\\pi}{2},\\tfrac{\\pi}{2}\\right] \\]</div><p style='margin-top:14px;line-height:1.9'>Returns NaN for \\(|x|>1\\). Integral representation: \\(\\arcsin x=\\int_0^x dt/\\sqrt{1-t^2}\\). The derivative is \\(1/\\sqrt{1-x^2}\\).</p>"
+}

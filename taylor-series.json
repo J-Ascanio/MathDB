@@ -1,0 +1,6 @@
+{
+  "title": "Taylor Series",
+  "subtitle": "Analysis · Power series approximation",
+  "summary": "Represents a smooth function as an infinite polynomial centred at a point.",
+  "detail": "<div class='formula-box'>\\[ f(x) = \\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n \\]</div><p style='margin-top:14px;line-height:1.9'>At \\(a=0\\) this is the Maclaurin series. Key expansions: \\(e^x=\\sum x^n/n!\\), \\(\\sin x=\\sum (-1)^n x^{2n+1}/(2n+1)!\\), \\(\\cos x=\\sum (-1)^n x^{2n}/(2n)!\\). Convergence is governed by the radius of convergence \\(R\\).</p>"
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Bayes' Theorem",
+  "subtitle": "Probability · Conditional probability",
+  "summary": "Updates the probability of a hypothesis given new evidence.",
+  "detail": "<div class='formula-box'>\\[ P(A\\mid B) = \\frac{P(B\\mid A)\\,P(A)}{P(B)} \\]</div><p style='margin-top:14px;line-height:1.9'>The prior \\(P(A)\\) is updated by the likelihood \\(P(B\\mid A)\\) to produce the posterior \\(P(A\\mid B)\\). Foundation of Bayesian statistics, machine learning, and Bayesian networks. The denominator \\(P(B)=\\sum_i P(B\\mid A_i)P(A_i)\\) is a normalisation constant.</p>"
+}

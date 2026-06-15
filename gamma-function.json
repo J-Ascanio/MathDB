@@ -1,0 +1,6 @@
+{
+  "title": "Gamma Function",
+  "subtitle": "Special Functions · Factorial extension",
+  "summary": "Extension of the factorial to complex numbers: Γ(n+1) = n!",
+  "detail": "<div class='formula-box'>\\[ \\Gamma(z) = \\int_0^{\\infty} t^{z-1}e^{-t}\\,dt \\]</div><p style='margin-top:14px;line-height:1.9'>Meromorphic on \\(\\mathbb{C}\\) with poles at non-positive integers. Key properties: \\(\\Gamma(z+1)=z\\Gamma(z)\\); \\(\\Gamma(1/2)=\\sqrt{\\pi}\\); reflection formula \\(\\Gamma(z)\\Gamma(1-z)=\\pi/\\sin(\\pi z)\\). Implemented via the Lanczos approximation.</p>"
+}

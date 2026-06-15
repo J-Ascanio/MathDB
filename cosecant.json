@@ -1,0 +1,6 @@
+{
+  "title": "Cosecant",
+  "subtitle": "Trigonometric · Reciprocal",
+  "summary": "Reciprocal of sine. Poles at multiples of π.",
+  "detail": "<div class='formula-box'>\\[ \\csc x = \\frac{1}{\\sin x} \\]</div><p style='margin-top:14px;line-height:1.9'>Poles at \\(n\\pi\\). Range \\((-\\infty,-1]\\cup[1,\\infty)\\). Historical navigation function. The Pythagorean identity gives \\(\\csc^2 x = 1+\\cot^2 x\\).</p>"
+}

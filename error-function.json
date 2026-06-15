@@ -1,0 +1,6 @@
+{
+  "title": "Error Function",
+  "subtitle": "Special Functions · Probability",
+  "summary": "Integral of the Gaussian. Used in probability and heat transfer.",
+  "detail": "<div class='formula-box'>\\[ \\operatorname{erf}(x) = \\frac{2}{\\sqrt{\\pi}}\\int_0^x e^{-t^2}\\,dt \\]</div><p style='margin-top:14px;line-height:1.9'>Odd function: \\(\\operatorname{erf}(-x)=-\\operatorname{erf}(x)\\). \\(\\operatorname{erf}(\\infty)=1\\). The complementary error function \\(\\operatorname{erfc}(x)=1-\\operatorname{erf}(x)\\). The normal CDF is \\(\\Phi(x)=\\frac{1}{2}\\left[1+\\operatorname{erf}\\!\\left(x/\\sqrt{2}\\right)\\right]\\).</p>"
+}

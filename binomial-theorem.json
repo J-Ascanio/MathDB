@@ -1,0 +1,6 @@
+{
+  "title": "Binomial Theorem",
+  "subtitle": "Algebra · Combinatorics",
+  "summary": "Expands (x+y)ⁿ as a sum weighted by binomial coefficients.",
+  "detail": "<div class='formula-box'>\\[ (x+y)^n = \\sum_{k=0}^{n}\\binom{n}{k}x^{n-k}y^k \\]</div><p style='margin-top:14px;line-height:1.9'>The binomial coefficients \\(\\binom{n}{k}=\\frac{n!}{k!(n-k)!}\\) form Pascal's triangle and satisfy \\(\\binom{n}{k}=\\binom{n-1}{k-1}+\\binom{n-1}{k}\\). Extends to non-integer \\(n\\) via the generalised binomial series.</p>"
+}

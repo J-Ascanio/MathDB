@@ -1,0 +1,6 @@
+{
+  "title": "Cosh",
+  "subtitle": "Hyperbolic · Catenary",
+  "summary": "Hyperbolic cosine. Shape of a hanging chain.",
+  "detail": "<div class='formula-box'>\\[ \\cosh x = \\frac{e^x + e^{-x}}{2} \\]</div><p style='margin-top:14px;line-height:1.9'>Even function: \\(\\cosh(-x)=\\cosh x\\). Range \\([1,\\infty)\\). A hanging flexible chain under gravity forms a catenary \\(y=a\\cosh(x/a)\\). Identity: \\(\\cosh^2 x-\\sinh^2 x=1\\).</p>"
+}

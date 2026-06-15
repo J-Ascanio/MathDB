@@ -1,0 +1,6 @@
+{
+  "title": "Fourier Transform",
+  "subtitle": "Analysis · Signal processing",
+  "summary": "Decomposes a time-domain signal into its frequency components.",
+  "detail": "<div class='formula-box'>\\[ \\hat{F}(\\xi) = \\int_{-\\infty}^{\\infty} F(t)\\,e^{-2\\pi i t\\xi}\\,dt \\]</div><p style='margin-top:14px;line-height:1.9'>The inverse is \\(F(t)=\\int\\hat{F}(\\xi)e^{2\\pi it\\xi}d\\xi\\). Parseval's theorem: \\(\\int|F|^2=\\int|\\hat{F}|^2\\) (energy is conserved). Some conventions use angular frequency \\(\\omega\\) instead of \\(\\xi\\), inserting factors of \\(2\\pi\\) differently.</p>"
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Tanh",
+  "subtitle": "Hyperbolic · Sigmoid-like",
+  "summary": "Hyperbolic tangent. Range (−1, 1). Used as a neural network activation.",
+  "detail": "<div class='formula-box'>\\[ \\tanh x = \\frac{\\sinh x}{\\cosh x} = \\frac{e^x-e^{-x}}{e^x+e^{-x}} \\]</div><p style='margin-top:14px;line-height:1.9'>Odd function. Range \\((-1,1)\\), with horizontal asymptotes at \\(\\pm 1\\). Derivative: \\(\\operatorname{sech}^2 x=1-\\tanh^2 x\\). Used as an activation function in neural networks (zero-centred, unlike sigmoid).</p>"
+}

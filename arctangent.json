@@ -1,0 +1,6 @@
+{
+  "title": "Arctangent",
+  "subtitle": "Trigonometric · Inverse",
+  "summary": "Inverse tangent. Range (−π/2, π/2), domain all reals.",
+  "detail": "<div class='formula-box'>\\[ \\arctan x = \\int_0^x \\frac{dt}{1+t^2} \\]</div><p style='margin-top:14px;line-height:1.9'>Derivative: \\(1/(1+x^2)\\). The two-argument form \\(\\text{atan2}(y,x)\\) returns angles in \\((-\\pi,\\pi]\\) using the signs of both arguments to determine the correct quadrant. Series: \\(\\arctan x=x-x^3/3+x^5/5-\\cdots\\) for \\(|x|\\le 1\\).</p>"
+}

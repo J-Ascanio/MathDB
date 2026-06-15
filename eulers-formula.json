@@ -1,0 +1,6 @@
+{
+  "title": "Euler's Formula",
+  "subtitle": "Complex Analysis · Complex exponential",
+  "summary": "The complex exponential traces the unit circle as θ varies.",
+  "detail": "<div class='formula-box'>\\[ e^{i\\theta} = \\cos\\theta + i\\sin\\theta \\]</div><p style='margin-top:14px;line-height:1.9'>Foundation of Fourier analysis, signal processing, and quantum mechanics. The magnitude is always 1; the argument is \\(\\theta\\). Setting \\(\\theta=\\pi\\) gives Euler's identity.</p>"
+}

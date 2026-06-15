@@ -1,0 +1,6 @@
+{
+  "title": "Cauchy–Schwarz Inequality",
+  "subtitle": "Linear Algebra · Inner product spaces",
+  "summary": "The square of an inner product is bounded by the product of the norms squared.",
+  "detail": "<div class='formula-box'>\\[ |\\langle u,v\\rangle|^2 \\le \\langle u,u\\rangle\\cdot\\langle v,v\\rangle \\]</div><p style='margin-top:14px;line-height:1.9'>For vectors in \\(\\mathbb{R}^n\\): \\(|u\\cdot v|\\le|u||v|\\). Equality holds iff \\(u\\) and \\(v\\) are linearly dependent. Used to prove the triangle inequality for norms, and as a foundation for correlation in statistics (\\(|r|\\le 1\\)).</p>"
+}

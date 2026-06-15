@@ -1,0 +1,6 @@
+{
+  "title": "Sinh",
+  "subtitle": "Hyperbolic · Exponential",
+  "summary": "Hyperbolic sine. Odd function.",
+  "detail": "<div class='formula-box'>\\[ \\sinh x = \\frac{e^x - e^{-x}}{2} \\]</div><p style='margin-top:14px;line-height:1.9'>Domain and range \\(\\mathbb{R}\\). Odd function: \\(\\sinh(-x)=-\\sinh x\\). Taylor series: \\(x+x^3/6+x^5/120+\\cdots\\) (same signs as \\(\\sin x\\) but without alternation). Identity: \\(\\cosh^2 x-\\sinh^2 x=1\\).</p>"
+}
